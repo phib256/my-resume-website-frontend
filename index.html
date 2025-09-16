@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Ronald Mugume</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="hamburger-nav">
+        <div class="logo">Ronald Mugume</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </div>
+        </div>
+    </nav>
+    <section id="profile">
+        <div class="section_pic-container">
+            <img src="./assets/profile-pic.png" alt="Ronald Mugume profile picture ">
+        </div>
+
+        <div class="section_text">
+            <p class="section_text_p1">Hello, I'm </p>
+            <h1 class="title"> Ronald Mugume</h1>
+            <p class="section_text_p2"> Cloud Engineer</p>
+            <div class="btn-container">
+                <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')"> Download CV</button>
+                <button class="btn btn-color-1" onclick="location.href='./#contact'"> Contact Info</button>
+            </div>
+            <div id="socials-container">
+                <img src="./assets/linkedin.png" alt="My LinkedIn profile"
+                class="icon" onclick="location.href='https://www.linkedin.com/in/ronaldmugume'">
+
+                <img src="./assets/github.png" alt="My Github profile"
+                class="icon" onclick="location.href='https://www.github.com/phib256'">
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <p class="section_text_p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+            <div class="section_pic-container">
+                <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic">
+            </div>
+            <div class="about-details-container">
+                <div class="about-containers">
+                    <div class="details-container">
+                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
+                        <h3> Experince</h3>
+                        <p>3+ years <br>Google Cloud Asociate Engineer</p>
+                    </div>
+                    <div class="details-container">
+                        <img src="./assets/education.png" alt="Educcation icon" class="icon">
+                        <h3> Education</h3>
+                        <p>B.Sc.Information Technology and Computing </p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <p>Highly motivated and results-oriented Cloud Engineer with 3+ years of experience designing,
+                    implementing, and managing cloud-based solutions. Certified GCP Associate Cloud Engineer,
+                    demonstrating a strong understanding of Google Cloud Platform principles and best practices.
+                    Possess a comprehensive skillset that spans leading cloud platforms (AWS, Azure, GCP) to deliver
+                    efficient and scalable solutions. Continuously pursue knowledge of the latest cloud advancements
+                    and remain eager to leverage my skills and expertise to contribute to a dynamic cloud environment.</p>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
+        onclick="location.href='./#experience'">
+    </section>
+    <section id="experience">
+        <p class="section_text_p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experince-details-container">
+            <div class="about-containers">
+                <div class="details-containers">
+                    <h2 class="experince-sub-title">Cloud Engineering</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Cloud Platforms</h3>
+                                <p>Proven experince with Google Cloud Platform. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Infrastructure as Code (IaC)</h3>
+                                <p>Adept at using IaC tools like Terraform. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Linux Administration</h3>
+                                <p>Possess a strong foundation in Linux administration,
+                                    including command-line proficiency and package management skills. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Scripting Languages</h3>
+                                <p> Proficient in scripting languages like Python, Bash. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Cloud Security</h3>
+                                <p>Understand the importance of cloud security and best practices. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Problem-Solving and Analytical Skills</h3>
+                                <p> Strong ability to identify and troubleshoot cloud-related issues. </p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+                <div class="details-containers">
+                    <h2 class="experince-sub-title">Cloud Engineering</h2>
+                    <div class="article-container">
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Kubernetes</h3>
+                                <p>Experinced. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>BigQuery</h3>
+                                <p>Experinced. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Mornitoring and Logging</h3>
+                                <p>Proficient. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Docker</h3>
+                                <p> Experinced. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Github</h3>
+                                <p>Experinced. </p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
+                            <div>
+                                <h3>Amazon EC2</h3>
+                                <p> Proficient. </p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
+        onclick="location.href='./#projects'">
+    </section>
+    <section id="projects">
+        <p class="section_text_p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+            <div class="experince-details-container">
+                <div class="about-containers">
+                <div class="details-containers color-container">
+                    <div class="article-container">
+                        <img 
+                        src="./assets/project-1.png" 
+                        alt="project 1" 
+                        class="project-img">
+                    </div>
+                    <h2 class="experience-sub-title project-title">Provisioning a GKE Cluster with Terraform</h2>
+                    <div class="btn-container">
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://github.com/phib256/Provisioning-a-GKE-cluster-with-Terraform'">
+                            Github
+                        </button>
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://www.github.com/phib256'">
+                            Live Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="details-containers color-container">
+                    <div class="article-container">
+                        <img 
+                        src="./assets/project-2.png" 
+                        alt="project 2" 
+                        class="project-img">
+                    </div>
+                    <h2 class="experience-sub-title project-title">Provisioning a EKS Cluster with Terraform</h2>
+                    <div class="btn-container">
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://github.com/phib256/Provisioning-a-EKS-Cluster-with-Terraform'">
+                            Github
+                        </button>
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://www.github.com/phib256'">
+                            Live Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="details-containers color-container">
+                    <div class="article-container">
+                        <img 
+                        src="./assets/project-3.png" 
+                        alt="project 3" 
+                        class="project-img">
+                    </div>
+                    <h2 class="experience-sub-title project-title">Provisioning a AKS Cluster with Terraform</h2>
+                    <div class="btn-container">
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://github.com/phib256/Provisioning-an-AKS-cluster-with-terraform'">
+                            Github
+                        </button>
+                        <button 
+                        class="btn btn-color-2 project-btn"
+                        onclick="location.href='https://www.github.com/phib256'">
+                            Live Demo
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
+        onclick="location.href='./#projects'">
+    </section>
+    <section id="contact">
+        <p class="section_text_p1">Get in Touch</p>
+        <h1 class="title">Contact Me</h1>
+        <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+                <img src="./assets/email.png" 
+                alt="Email icon" 
+                class="icon contact-icon email-icon"/>
+                <p><a href="mailto:ronniemugs@gmail.com">ronniemugs@gmail.com</a></p>
+            </div>
+            <div class="contact-info-container">
+                <img src="./assets/linkedin.png" 
+                alt="LinkedIn icon" 
+                class="icon contact-icon "/>
+                <p><a href="https://www.linkedin.com/in/ronaldmugume">LinkedIn</a></p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2024 Ronald Mugume. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

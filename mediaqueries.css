@@ -41,6 +41,13 @@
     }
 }
 
+@media screen and (max-width:900px){
+    .timeline{padding-left:18px}
+    .timeline:before{left:8px}
+    .timeline-marker{left:-6px}
+    .timeline-item{padding:14px}
+}
+
 @media screen and (max-width:600px){
     #contact, footer{
         height: 40vh;
@@ -91,7 +98,6 @@ footer nav{
     text-align: justify;
 }
 
-}
 
 
 

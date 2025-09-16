@@ -1,0 +1,119 @@
+[debug] [2025-09-16T21:31:55.495Z] ----------------------------------------------------------------------
+[debug] [2025-09-16T21:31:55.497Z] Command:       /home/phb/.nvm/versions/node/v22.12.0/bin/node /home/phb/.nvm/versions/node/v22.12.0/bin/firebase init hosting
+[debug] [2025-09-16T21:31:55.497Z] CLI Version:   14.16.0
+[debug] [2025-09-16T21:31:55.497Z] Platform:      linux
+[debug] [2025-09-16T21:31:55.498Z] Node Version:  v22.12.0
+[debug] [2025-09-16T21:31:55.498Z] Time:          Wed Sep 17 2025 00:31:55 GMT+0300 (East Africa Time)
+[debug] [2025-09-16T21:31:55.498Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-16T21:31:55.500Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2025-09-16T21:31:55.539Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-16T21:31:55.540Z] > authorizing via signed-in user (ronniemugs@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/phb/my-resume-website-frontend
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-09-16T21:31:56.168Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-09-16T21:31:56.168Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2025-09-16T21:32:30.363Z] Checked if tokens are valid: false, expires at: 1748909099603
+[debug] [2025-09-16T21:32:30.364Z] Checked if tokens are valid: false, expires at: 1748909099603
+[debug] [2025-09-16T21:32:30.365Z] > refreshing access token with scopes: []
+[debug] [2025-09-16T21:32:30.370Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-16T21:32:30.371Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-16T21:32:30.827Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-16T21:32:30.827Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-16T21:32:30.833Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-09-16T21:32:31.853Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-09-16T21:32:31.853Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project resume-425410 (resume) 
+[info] 
+=== Hosting Setup
+[debug] [2025-09-16T21:32:34.824Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:32:34.824Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:32:34.825Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 [none]
+[debug] [2025-09-16T21:32:35.238Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 200
+[debug] [2025-09-16T21:32:35.238Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 {"projectId":"resume-425410","projectNumber":"547666691651","displayName":"resume","name":"projects/resume-425410","resources":{"hostingSite":"resume-425410","realtimeDatabaseInstance":"resume-425410-default-rtdb"},"state":"ACTIVE","etag":"1_b2855a0b-265b-4c8c-8991-7b183119670a"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] ✔  Wrote ./404.html 
+[debug] [2025-09-16T21:33:10.229Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-09-16T21:33:12.451Z] *** [apiv2] error from fetch(https://www.gstatic.com/firebasejs/releases.json, {"headers":{},"method":"GET"}): FetchError: request to https://www.gstatic.com/firebasejs/releases.json failed, reason: 
+[debug] [2025-09-16T21:33:17.462Z] Error: Timed out.
+    at Timeout._onTimeout (/home/phb/.nvm/versions/node/v22.12.0/lib/node_modules/firebase-tools/lib/utils.js:275:49)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-09-16T21:37:26.381Z] ----------------------------------------------------------------------
+[debug] [2025-09-16T21:37:26.383Z] Command:       /home/phb/.nvm/versions/node/v22.12.0/bin/node /home/phb/.nvm/versions/node/v22.12.0/bin/firebase init hosting
+[debug] [2025-09-16T21:37:26.383Z] CLI Version:   14.16.0
+[debug] [2025-09-16T21:37:26.383Z] Platform:      linux
+[debug] [2025-09-16T21:37:26.384Z] Node Version:  v22.12.0
+[debug] [2025-09-16T21:37:26.384Z] Time:          Wed Sep 17 2025 00:37:26 GMT+0300 (East Africa Time)
+[debug] [2025-09-16T21:37:26.384Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-16T21:37:26.388Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-16T21:37:26.389Z] > authorizing via signed-in user (ronniemugs@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/phb/my-resume-website-frontend
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-09-16T21:37:26.391Z] Using project from CLI flag: resume-425410
+[debug] [2025-09-16T21:37:26.391Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:37:26.392Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:37:26.392Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 [none]
+[debug] [2025-09-16T21:37:27.411Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 200
+[debug] [2025-09-16T21:37:27.412Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 {"projectId":"resume-425410","projectNumber":"547666691651","displayName":"resume","name":"projects/resume-425410","resources":{"hostingSite":"resume-425410","realtimeDatabaseInstance":"resume-425410-default-rtdb"},"state":"ACTIVE","etag":"1_b2855a0b-265b-4c8c-8991-7b183119670a"}
+[info] i  Using project resume-425410 (resume) 
+[info] 
+=== Hosting Setup
+[debug] [2025-09-16T21:37:27.776Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:37:27.777Z] Checked if tokens are valid: true, expires at: 1758061949828
+[debug] [2025-09-16T21:37:27.777Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 [none]
+[debug] [2025-09-16T21:37:28.122Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 200
+[debug] [2025-09-16T21:37:28.123Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/resume-425410 {"projectId":"resume-425410","projectNumber":"547666691651","displayName":"resume","name":"projects/resume-425410","resources":{"hostingSite":"resume-425410","realtimeDatabaseInstance":"resume-425410-default-rtdb"},"state":"ACTIVE","etag":"1_b2855a0b-265b-4c8c-8991-7b183119670a"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] i  ./404.html is unchanged 
+[debug] [2025-09-16T21:38:13.189Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-09-16T21:38:43.229Z] *** [apiv2] error from fetch(https://www.gstatic.com/firebasejs/releases.json, {"headers":{},"method":"GET"}): FetchError: request to https://www.gstatic.com/firebasejs/releases.json failed, reason: getaddrinfo ENOTFOUND www.gstatic.com
+[debug] [2025-09-16T21:38:48.239Z] Error: Timed out.
+    at Timeout._onTimeout (/home/phb/.nvm/versions/node/v22.12.0/lib/node_modules/firebase-tools/lib/utils.js:275:49)
+    at listOnTimeout (node:internal/timers:594:17)
+    at process.processTimers (node:internal/timers:529:7)
+[error] 
+[error] Error: An unexpected error has occurred.

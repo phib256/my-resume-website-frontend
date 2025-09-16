@@ -38,13 +38,13 @@
     </nav>
     <section id="profile">
         <div class="section_pic-container">
-            <img src="./assets/profile-pic.png" alt="Ronald Mugume profile picture ">
+            <img src="./assets/profile-pic.png" alt="Ronald Mugume profile picture" class="profile-img">
         </div>
 
         <div class="section_text">
-            <p class="section_text_p1">Hello, I'm </p>
-            <h1 class="title"> Ronald Mugume</h1>
-            <p class="section_text_p2"> Cloud Engineer</p>
+            <p class="section_text_p1">Hello — I'm</p>
+            <h1 class="title">Ronald Mugume</h1>
+            <p class="section_text_p2">Cloud Engineer — GCP | Kubernetes | IaC</p>
             <div class="btn-container">
                 <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')"> Download CV</button>
                 <button class="btn btn-color-1" onclick="location.href='./#contact'"> Contact Info</button>
@@ -56,14 +56,20 @@
                 <img src="./assets/github.png" alt="My Github profile"
                 class="icon" onclick="location.href='https://www.github.com/phib256'">
             </div>
+                <!-- Credly badges placeholder (paste your badge <img> tags here for now) -->
+                <h3 id="badges-heading" style="text-align:center;margin-top:14px;margin-bottom:8px;font-size:1rem;color:#444;">Badges &amp; Certifications</h3>
+                                <div id="badges" class="badges-container" style="margin-top:12px;">
+                                  <!-- Local badges will be rendered here from assets/badges.json -->
+                                </div>
         </div>
     </section>
     <section id="about">
         <p class="section_text_p1">Get To Know More</p>
         <h1 class="title">About Me</h1>
         <div class="section-container">
+            <!-- About picture removed as requested -->
             <div class="section_pic-container">
-                <img src="./assets/about-pic.jpg" alt="Profile picture" class="about-pic">
+                <!-- image intentionally removed -->
             </div>
             <div class="about-details-container">
                 <div class="about-containers">
@@ -79,124 +85,62 @@
                     </div>
                 </div>
                 <div class="text-container">
-                    <p>Highly motivated and results-oriented Cloud Engineer with 3+ years of experience designing,
-                    implementing, and managing cloud-based solutions. Certified GCP Associate Cloud Engineer,
-                    demonstrating a strong understanding of Google Cloud Platform principles and best practices.
-                    Possess a comprehensive skillset that spans leading cloud platforms (AWS, Azure, GCP) to deliver
-                    efficient and scalable solutions. Continuously pursue knowledge of the latest cloud advancements
-                    and remain eager to leverage my skills and expertise to contribute to a dynamic cloud environment.</p>
+                    <p>Cloud Engineer with 3+ years building and operating production cloud platforms. GCP Associate Cloud Engineer certified. Skilled in Kubernetes, Terraform, and automation to deliver scalable, secure infrastructure.</p>
                 </div>
             </div>
         </div>
         <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
         onclick="location.href='./#experience'">
     </section>
-    <section id="experience">
+    <section id="experience" class="timeline-section">
         <p class="section_text_p1">Explore My</p>
         <h1 class="title">Experience</h1>
-        <div class="experince-details-container">
-            <div class="about-containers">
-                <div class="details-containers">
-                    <h2 class="experince-sub-title">Cloud Engineering</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Cloud Platforms</h3>
-                                <p>Proven experince with Google Cloud Platform. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Infrastructure as Code (IaC)</h3>
-                                <p>Adept at using IaC tools like Terraform. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Linux Administration</h3>
-                                <p>Possess a strong foundation in Linux administration,
-                                    including command-line proficiency and package management skills. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Scripting Languages</h3>
-                                <p> Proficient in scripting languages like Python, Bash. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Cloud Security</h3>
-                                <p>Understand the importance of cloud security and best practices. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Problem-Solving and Analytical Skills</h3>
-                                <p> Strong ability to identify and troubleshoot cloud-related issues. </p>
-                            </div>
-                        </article>
 
-                    </div>
-                </div>
-                <div class="details-containers">
-                    <h2 class="experince-sub-title">Cloud Engineering</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Kubernetes</h3>
-                                <p>Experinced. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>BigQuery</h3>
-                                <p>Experinced. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Mornitoring and Logging</h3>
-                                <p>Proficient. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Docker</h3>
-                                <p> Experinced. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Github</h3>
-                                <p>Experinced. </p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experince icon" class="icon">
-                            <div>
-                                <h3>Amazon EC2</h3>
-                                <p> Proficient. </p>
-                            </div>
-                        </article>
-
-                    </div>
+        <!-- Timeline wrapper -->
+        <div class="timeline">
+            <!-- Each timeline-item can represent either a role or a skill cluster -->
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Cloud Engineering · Platform</h3>
+                    <p class="muted">GCP | Kubernetes | Terraform | Docker</p>
+                    <ul class="timeline-list">
+                        <li><strong>Cloud Platforms</strong> — Proven experience with Google Cloud Platform.</li>
+                        <li><strong>IaC</strong> — Infrastructure as Code with Terraform to provision and manage clusters.</li>
+                        <li><strong>Observability</strong> — Logging, monitoring and alerting with Stackdriver/Prometheus.</li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Platform Engineering · Containers</h3>
+                    <p class="muted">Kubernetes, Helm, Docker</p>
+                    <ul class="timeline-list">
+                        <li><strong>Kubernetes</strong> — Hands-on with GKE/EKS/AKS cluster lifecycle and operators.</li>
+                        <li><strong>Containerization</strong> — Build and secure images, CI/CD integration.</li>
+                        <li><strong>Security</strong> — Workloads hardening, RBAC, and least-privilege IAM.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>Tooling & Automation</h3>
+                    <p class="muted">Python · Bash · CI/CD</p>
+                    <ul class="timeline-list">
+                        <li><strong>Scripting</strong> — Python and Bash for automation and tooling.</li>
+                        <li><strong>Version Control</strong> — Git workflows, GitHub Actions.</li>
+                        <li><strong>Problem Solving</strong> — Troubleshooting systems at scale.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#projects'">
+
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'">
     </section>
     <section id="projects">
         <p class="section_text_p1">Browse My Recent</p>
@@ -303,5 +247,7 @@
         <p>Copyright &#169; 2024 Ronald Mugume. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <!-- Fixed visitor counter -->
+    <div id="visitor-count-fixed" aria-live="polite">Visited by 0 people</div>
 </body>
 </html>

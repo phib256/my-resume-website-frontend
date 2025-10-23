@@ -1,21 +1,59 @@
-function toggleMenu() {
+const toggleMenu = () => {
     const menu = document.querySelector(".menu-links");
     const icon = document.querySelector(".hamburger-icon");
     menu.classList.toggle("open");
     icon.classList.toggle("open");
-}
+};
 
-
-
-// Visitor counter placeholder: set a static value to confirm the script is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const visitorEl = document.getElementById('visitor-count');
+    // Hamburger menu
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    if (hamburgerIcon) {
+        hamburgerIcon.addEventListener('click', toggleMenu);
+    }
+    const menuLinks = document.querySelectorAll('.menu-links a');
+    menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+    // Button and icon click handlers
+    document.getElementById('download-cv-btn')?.addEventListener('click', () => {
+        window.open('./assets/resume.pdf');
+    });
+
+    document.getElementById('contact-info-btn')?.addEventListener('click', () => {
+        location.href = './#contact';
+    });
+
+    document.querySelectorAll('#socials-container .icon').forEach(icon => {
+        icon.addEventListener('click', () => {
+            if (icon.dataset.href) {
+                location.href = icon.dataset.href;
+            }
+        });
+    });
+
+    document.querySelectorAll('.project-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.dataset.href) {
+                location.href = btn.dataset.href;
+            }
+        });
+    });
+
+    // Arrow navigation
+    document.getElementById('about-arrow')?.addEventListener('click', () => location.href = './#experience');
+    document.getElementById('experience-arrow')?.addEventListener('click', () => location.href = './#projects');
+    document.getElementById('projects-arrow')?.addEventListener('click', () => location.href = './#contact'); // Corrected from #projects to #contact
+
+    // Visitor counter placeholder
+    const visitorEl = document.getElementById('visitor-count-fixed');
     if (visitorEl) {
         // Static value for now; backend will provide a real number later
-        visitorEl.textContent = 'Visitors: 123';
+        visitorEl.textContent = 'Visited by 123 people';
     }
+
     // Load local badges first (so they are visible even if remote discovery fails)
     loadLocalBadges();
+
     // Try loading Credly badges (frontend-only attempt) as an augmentation if available
     loadCredlyBadges();
 });
@@ -188,32 +226,18 @@ function loadCredlyBadges() {
     });
 }
 
-// Badge image fallback: if an image fails to load, replace with a text label so the badge area never looks empty
 document.addEventListener('DOMContentLoaded', () => {
-    const imgs = document.querySelectorAll('#badges img');
-    imgs.forEach(img => {
-        img.addEventListener('error', () => {
-            console.warn('Badge image failed to load:', img.src);
-            const card = img.closest('.badge-card');
-            if (card) {
-                // remove broken image and show label
-                img.remove();
-                const lbl = card.querySelector('.badge-label');
-                if (lbl) lbl.style.display = 'block';
-                else {
-                    const newLabel = document.createElement('div');
-                    newLabel.className = 'badge-label';
-                    newLabel.textContent = 'Badge';
-                    card.appendChild(newLabel);
-                }
+    // Badge image fallback: if an image fails to load, handle it gracefully.
+    // This uses event delegation on the badges container.
+    const badgesContainer = document.getElementById('badges');
+    if (badgesContainer) {
+        badgesContainer.addEventListener('error', (e) => {
+            if (e.target.tagName === 'IMG') {
+                console.warn('Badge image failed to load:', e.target.src);
+                // Hide the broken image
+                e.target.style.display = 'none';
+                // You could also replace it with a placeholder or text.
             }
-        });
-    });
+        }, true); // Use capture phase to catch errors on images
+    }
 });
-
-// Set the fixed bottom-right visitor label
-document.addEventListener('DOMContentLoaded', () => {
-    const fixed = document.getElementById('visitor-count-fixed');
-    if (fixed) fixed.textContent = 'Visited by 123 people';
-});
-

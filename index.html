@@ -11,7 +11,7 @@
     <nav id="desktop-nav">
         <div class="logo">Ronald Mugume</div>
         <div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="desktop-nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -19,11 +19,11 @@
             </ul>
         </div>
     </nav>
-
+ 
     <nav id="hamburger-nav">
         <div class="logo">Ronald Mugume</div>
         <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
+            <div class="hamburger-icon">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -42,23 +42,20 @@
         </div>
 
         <div class="section_text">
-            <p class="section_text_p1">Hello — I'm</p>
+            <p class="section_text_p1">Ronald Mugume</p>
             <h1 class="title">Ronald Mugume</h1>
-            <p class="section_text_p2">Cloud Engineer — GCP | Kubernetes | IaC</p>
+            <p class="section_text_p2">Multi-Cloud Engineer & Automation Expert</p>
             <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')"> Download CV</button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'"> Contact Info</button>
+                <button class="btn btn-color-2" id="download-cv-btn"> Download CV</button>
+                <button class="btn btn-color-1" id="contact-info-btn"> Contact Info</button>
             </div>
             <div id="socials-container">
-                <img src="./assets/linkedin.png" alt="My LinkedIn profile"
-                class="icon" onclick="location.href='https://www.linkedin.com/in/ronaldmugume'">
-
-                <img src="./assets/github.png" alt="My Github profile"
-                class="icon" onclick="location.href='https://www.github.com/phib256'">
+                <i class="fa-brands fa-linkedin icon" data-href="https://www.linkedin.com/in/ronaldmugume" aria-label="My LinkedIn profile"></i>
+                <i class="fa-brands fa-github icon" data-href="https://www.github.com/phib256" aria-label="My Github profile"></i>
             </div>
                 <!-- Credly badges placeholder (paste your badge <img> tags here for now) -->
-                <h3 id="badges-heading" style="text-align:center;margin-top:14px;margin-bottom:8px;font-size:1rem;color:#444;">Badges &amp; Certifications</h3>
-                                <div id="badges" class="badges-container" style="margin-top:12px;">
+                <h3 id="badges-heading">Badges &amp; Certifications</h3>
+                                <div id="badges" class="badges-container">
                                   <!-- Local badges will be rendered here from assets/badges.json -->
                                 </div>
         </div>
@@ -73,24 +70,23 @@
             </div>
             <div class="about-details-container">
                 <div class="about-containers">
-                    <div class="details-container">
+                    <div class="details-container info-card">
                         <img src="./assets/experience.png" alt="Experience icon" class="icon">
-                        <h3> Experince</h3>
-                        <p>3+ years <br>Google Cloud Asociate Engineer</p>
+                        <h3>Experience</h3>
+                        <p>3+ years <br>Cloud & Platform Engineering</p>
                     </div>
-                    <div class="details-container">
+                    <div class="details-container info-card">
                         <img src="./assets/education.png" alt="Educcation icon" class="icon">
                         <h3> Education</h3>
-                        <p>B.Sc.Information Technology and Computing </p>
+                        <p>B.Sc. IT & Computing</p>
                     </div>
                 </div>
                 <div class="text-container">
-                    <p>Cloud Engineer with 3+ years building and operating production cloud platforms. GCP Associate Cloud Engineer certified. Skilled in Kubernetes, Terraform, and automation to deliver scalable, secure infrastructure.</p>
+                    <p>As a certified Cloud Engineer with over three years of hands-on experience, I specialize in architecting and automating scalable, secure, and resilient infrastructure across GCP, AWS, and Azure. My expertise lies in using Kubernetes and Terraform to build robust platforms that drive business innovation and operational excellence.</p>
                 </div>
             </div>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#experience'">
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="about-arrow">
     </section>
     <section id="experience" class="timeline-section">
         <p class="section_text_p1">Explore My</p>
@@ -102,10 +98,10 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h3>Cloud Engineering · Platform</h3>
-                    <p class="muted">GCP | Kubernetes | Terraform | Docker</p>
+                    <h3>Multi-Cloud Architecture</h3>
+                    <p class="muted">GCP | AWS | Azure</p>
                     <ul class="timeline-list">
-                        <li><strong>Cloud Platforms</strong> — Proven experience with Google Cloud Platform.</li>
+                        <li><strong>Cloud Platforms</strong> — Architecting solutions on GCP, AWS, and Azure for optimal performance and cost.</li>
                         <li><strong>IaC</strong> — Infrastructure as Code with Terraform to provision and manage clusters.</li>
                         <li><strong>Observability</strong> — Logging, monitoring and alerting with Stackdriver/Prometheus.</li>
                     </ul>
@@ -115,11 +111,11 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h3>Platform Engineering · Containers</h3>
-                    <p class="muted">Kubernetes, Helm, Docker</p>
+                    <h3>Kubernetes & Container Orchestration</h3>
+                    <p class="muted">GKE | EKS | AKS | Docker | Helm</p>
                     <ul class="timeline-list">
-                        <li><strong>Kubernetes</strong> — Hands-on with GKE/EKS/AKS cluster lifecycle and operators.</li>
-                        <li><strong>Containerization</strong> — Build and secure images, CI/CD integration.</li>
+                        <li><strong>Cluster Management</strong> — Deploying and managing production-grade Kubernetes clusters on GKE, EKS, and AKS.</li>
+                        <li><strong>Containerization</strong> — Building optimized, secure container images with Docker for microservices.</li>
                         <li><strong>Security</strong> — Workloads hardening, RBAC, and least-privilege IAM.</li>
                     </ul>
                 </div>
@@ -128,11 +124,11 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h3>Tooling & Automation</h3>
-                    <p class="muted">Python · Bash · CI/CD</p>
+                    <h3>DevOps & Automation</h3>
+                    <p class="muted">Python | Bash | CI/CD | Git</p>
                     <ul class="timeline-list">
-                        <li><strong>Scripting</strong> — Python and Bash for automation and tooling.</li>
-                        <li><strong>Version Control</strong> — Git workflows, GitHub Actions.</li>
+                        <li><strong>Automation</strong> — Developing Python and Bash scripts to automate routine infrastructure tasks and reduce manual effort.</li>
+                        <li><strong>CI/CD Pipelines</strong> — Implementing automated build, test, and deployment pipelines with GitHub Actions.</li>
                         <li><strong>Problem Solving</strong> — Troubleshooting systems at scale.</li>
                     </ul>
                 </div>
@@ -140,95 +136,69 @@
 
         </div>
 
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'">
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="experience-arrow">
     </section>
     <section id="projects">
         <p class="section_text_p1">Browse My Recent</p>
         <h1 class="title">Projects</h1>
-            <div class="experince-details-container">
-                <div class="about-containers">
-                <div class="details-containers color-container">
-                    <div class="article-container">
-                        <img 
-                        src="./assets/project-1.png" 
-                        alt="project 1" 
-                        class="project-img">
+        <div class="project-list">
+            <!-- Project 1: GKE -->
+            <div class="project-item">
+                <img src="./assets/project-1.png" alt="GCP and GKE project illustration" class="project-img">
+                <div class="project-content">
+                    <h3 class="project-title">Automated GKE Cluster Provisioning</h3>
+                    <p class="project-description">A Terraform module to deploy a production-ready Google Kubernetes Engine (GKE) cluster, complete with networking, node pools, and IAM configurations, reducing setup time by over 90%.</p>
+                    <div class="project-tags">
+                        <span>Terraform</span><span>GCP</span><span>Kubernetes (GKE)</span><span>IaC</span>
                     </div>
-                    <h2 class="experience-sub-title project-title">Provisioning a GKE Cluster with Terraform</h2>
-                    <div class="btn-container">
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://github.com/phib256/Provisioning-a-GKE-cluster-with-Terraform'">
-                            Github
-                        </button>
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://www.github.com/phib256'">
-                            Live Demo
-                        </button>
+                    <div class="project-links">
+                        <a href="https://github.com/phib256/Provisioning-a-GKE-cluster-with-Terraform" target="_blank" class="btn btn-color-1">View Code</a>
                     </div>
-                </div>
-                <div class="details-containers color-container">
-                    <div class="article-container">
-                        <img 
-                        src="./assets/project-2.png" 
-                        alt="project 2" 
-                        class="project-img">
-                    </div>
-                    <h2 class="experience-sub-title project-title">Provisioning a EKS Cluster with Terraform</h2>
-                    <div class="btn-container">
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://github.com/phib256/Provisioning-a-EKS-Cluster-with-Terraform'">
-                            Github
-                        </button>
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://www.github.com/phib256'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-containers color-container">
-                    <div class="article-container">
-                        <img 
-                        src="./assets/project-3.png" 
-                        alt="project 3" 
-                        class="project-img">
-                    </div>
-                    <h2 class="experience-sub-title project-title">Provisioning a AKS Cluster with Terraform</h2>
-                    <div class="btn-container">
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://github.com/phib256/Provisioning-an-AKS-cluster-with-terraform'">
-                            Github
-                        </button>
-                        <button 
-                        class="btn btn-color-2 project-btn"
-                        onclick="location.href='https://www.github.com/phib256'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
                 </div>
             </div>
-            <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow"
-        onclick="location.href='./#projects'">
+
+            <!-- Project 2: EKS -->
+            <div class="project-item">
+                <img src="./assets/project-2.png" alt="AWS and EKS project illustration" class="project-img">
+                <div class="project-content">
+                    <h3 class="project-title">Scalable EKS Infrastructure with Terraform</h3>
+                    <p class="project-description">This project automates the creation of a scalable and secure Amazon EKS cluster. It includes VPC setup, managed node groups, and integration with AWS load balancers for high availability.</p>
+                    <div class="project-tags">
+                        <span>Terraform</span><span>AWS</span><span>Kubernetes (EKS)</span><span>VPC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/phib256/Provisioning-a-EKS-Cluster-with-Terraform" target="_blank" class="btn btn-color-1">View Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: AKS -->
+            <div class="project-item">
+                <img src="./assets/project-3.png" alt="Azure and AKS project illustration" class="project-img">
+                <div class="project-content">
+                    <h3 class="project-title">Repeatable AKS Deployments via IaC</h3>
+                    <p class="project-description">An Infrastructure as Code solution for deploying Azure Kubernetes Service (AKS) clusters. The code defines the virtual network, subnets, and cluster configuration for consistent, repeatable environments.</p>
+                    <div class="project-tags">
+                        <span>Terraform</span><span>Azure</span><span>Kubernetes (AKS)</span><span>Networking</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/phib256/Provisioning-an-AKS-cluster-with-terraform" target="_blank" class="btn btn-color-1">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="projects-arrow">
     </section>
     <section id="contact">
         <p class="section_text_p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
         <div class="contact-info-upper-container">
             <div class="contact-info-container">
-                <img src="./assets/email.png" 
-                alt="Email icon" 
-                class="icon contact-icon email-icon"/>
+                <i class="fa-solid fa-envelope icon contact-icon"></i>
                 <p><a href="mailto:ronniemugs@gmail.com">ronniemugs@gmail.com</a></p>
             </div>
             <div class="contact-info-container">
-                <img src="./assets/linkedin.png" 
-                alt="LinkedIn icon" 
-                class="icon contact-icon "/>
+                <i class="fa-brands fa-linkedin icon contact-icon"></i>
                 <p><a href="https://www.linkedin.com/in/ronaldmugume">LinkedIn</a></p>
             </div>
         </div>

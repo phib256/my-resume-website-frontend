@@ -1,14 +1,7 @@
-@media screen and (max-width:1400px){
-    #profile{
-        height:83vh;
-        margin-bottom: 6rem;
-    }
-    .about-containers{
-        flex-wrap: wrap;
-    }
-}
-
-@media screen and (max-width:1200px){
+/* ==========================================================================
+   TABLET & SMALLER DESKTOPS (max-width: 1200px)
+   ========================================================================== */
+@media screen and (max-width: 1200px) {
     #desktop-nav{
         display: none;
     }
@@ -23,6 +16,9 @@
     }
     .arrow{
         display: none;
+    }
+    #profile {
+        height: auto;
     }
     section, .section-container{
         height: fit-content;
@@ -41,16 +37,28 @@
     }
 }
 
-@media screen and (max-width:900px){
+/* ==========================================================================
+   LARGE MOBILE & TABLET (max-width: 900px)
+   ========================================================================== */
+@media screen and (max-width: 900px) {
+    /* Timeline adjustments */
     .timeline{padding-left:18px}
     .timeline:before{left:8px}
     .timeline-marker{left:-6px}
     .timeline-item{padding:14px}
+
+    /* Project section stacking */
+    .project-item {
+        grid-template-columns: 1fr; /* Stack image and content */
+    }
 }
 
-@media screen and (max-width:600px){
+/* ==========================================================================
+   SMALL MOBILE (max-width: 600px)
+   ========================================================================== */
+@media screen and (max-width: 600px) {
     #contact, footer{
-        height: 40vh;
+        height: auto;
     }
     #profile{
         height: 83vh;
@@ -58,46 +66,71 @@
     }
     article{
         font-size: 1rem;
-}
-footer nav{
-    height: fit-content;
-    margin-bottom: 2rem;
-}
-.about-containers, .contact-info-upper-container, .btn-container{
-    flex-wrap: wrap;
-}
-.contact-info-container{
-    margin: 0;
-}
-.contact-info-container p, .nav-links li a{
-    font-size: 1rem;
-}
-.experience-sub-title{
-    font-size: 1.25rem;
-}
-.logo{
-    font-size: 1.5rem;
-}
-.nav-links{
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-}
-.section_pic-container{
-    width: auto;
-    height: 46vh;
-    justify-content: center;
-}
-.section_text_p2{
-    font-size: 1.25rem;
-}
-.title{
-    font-size: 2rem;
-}
-.text-container{
-    text-align: justify;
-}
+    }
+    footer nav{
+        height: fit-content;
+        margin-bottom: 2rem;
+    }
+    .about-containers, .contact-info-upper-container, .btn-container{
+        flex-wrap: wrap;
+    }
+    .contact-info-container{
+        margin: 0;
+    }
+    .contact-info-container p, .nav-links li a{
+        font-size: 1rem;
+    }
+    .experience-sub-title{
+        font-size: 1.25rem;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    .nav-links{
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    .section_pic-container{
+        width: 200px; /* More controlled size */
+        height: 200px;
+        justify-content: center;
+    }
+    .section_text_p2{
+        font-size: 1.25rem;
+    }
+    .title{
+        font-size: 2rem;
+    }
+    .text-container{
+        text-align: justify;
+    }
 
+    /* Make typing animation wrap gracefully */
+    #profile .title {
+        white-space: normal;
+        border-right: none; /* Hide cursor on wrap */
+        animation: none; /* Disable typing animation on small screens */
+    }
 
-
-
+    /* Full-screen hamburger menu */
+    .menu-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .menu-links.open {
+        max-height: 100vh;
+    }
+    .menu-links a {
+        font-size: 2rem;
+        color: var(--text);
+    }
+}

@@ -462,6 +462,12 @@ footer p {
     --glass: rgba(255,255,255,0.02);
 }
 
+/* Override for project cards in dark theme to ensure visibility */
+.color-container {
+    background: var(--panel);
+    border-color: rgba(255,255,255,0.03); /* Consistent with other dark theme borders */
+}
+
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
 body{background:linear-gradient(180deg,#071019 0%, #08121a 60%),var(--bg);color:var(--text);}
@@ -519,19 +525,6 @@ a:hover{text-decoration:underline}
 /* bottom-right visitor */
 #visitor-count-fixed{position:fixed;right:18px;bottom:18px;background:var(--panel);padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.6);font-weight:600}
 
-/* responsiveness */
-@media (max-width:1000px){
-    .container{grid-template-columns:1fr;max-width:900px;padding:16px}
-    .profile-panel{flex-direction:row;align-items:center;gap:16px;padding:12px}
-    .profile-img{width:86px;height:86px}
-    .name{font-size:1.05rem}
-    .badge-card img{height:90px}
-}
-@media (max-width:480px){
-    .badge-card img{height:72px}
-    .profile-panel{padding:10px}
-}
-
 /* subtle code-like accent */
 .header-accent{display:flex;gap:6px;align-items:center}
 .header-accent .dot{width:10px;height:10px;background:var(--accent);border-radius:3px;box-shadow:0 6px 18px rgba(52,211,153,0.08)}
@@ -574,3 +567,238 @@ footer{background:transparent;border-top:1px solid rgba(255,255,255,0.03);paddin
 
 /* Small utility */
 .icon{filter:brightness(1.1);opacity:0.95}
+
+/* Styles moved from inline HTML */
+#badges-heading {
+    text-align: center;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--text); /* Use theme's text color for visibility */
+}
+
+/* Fix for hamburger menu icon color in dark theme */
+.hamburger-icon span {
+    background-color: var(--text);
+}
+
+#badges.badges-container {
+    margin-top: 12px;
+}
+
+/* ==========================================================================
+   PROFESSIONAL SECTION STYLING
+   ========================================================================== */
+
+/* 1. Create a new, unified card style for "About" and "Projects" */
+.info-card {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 6px 22px rgba(2, 6, 12, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 2. Add a subtle "lift" on hover */
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* 3. Style icons within the "About" cards */
+.about-containers .info-card .icon {
+    background: rgba(110, 231, 183, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-bottom: 0.5rem;
+    filter: none; /* Reset previous filter */
+}
+
+
+
+/* ==========================================================================
+   TECH/GAMER/TERMINAL THEME OVERRIDE
+   ========================================================================== */
+
+/* 1. Import a monospaced font for that "code editor" feel */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* 2. Apply the font and add a CRT scanline effect to the whole page */
+body {
+    font-family: 'JetBrains Mono', monospace;
+    position: relative; /* Needed for the overlay */
+}
+
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient( /* More subtle, static scanlines */
+        0deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none; /* Makes sure you can click through it */
+    z-index: 9999;
+}
+
+@keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+}
+
+/* 3. Add a glowing text effect */
+h1, h2, h3, .section_text_p1, .btn {
+    text-shadow: 0 0 5px rgba(110, 231, 183, 0.4), 0 0 10px rgba(110, 231, 183, 0.2);
+}
+
+/* 4. Add a typing animation for your name */
+#profile .title {
+    display: inline-block;
+    overflow: hidden; /* Ensures the text is not seen before the animation */
+    border-right: .15em solid var(--accent); /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .1em;
+    animation: 
+        typing 2.5s steps(14, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent); }
+}
+
+/* 5. Refined, non-glitch hover effect for buttons */
+.btn:hover {
+    background: var(--accent);
+    color: var(--bg); /* Dark text on light button */
+    border-color: var(--accent);
+    text-shadow: none; /* Remove glow on solid background */
+    box-shadow: 0 0 15px rgba(110, 231, 183, 0.3);
+}
+
+/* Make sure project titles use the new font */
+.project-title {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* 6. Custom themed scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+    border-radius: 5px;
+    border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a3f5d0;
+}
+
+/* 7. Custom text selection color */
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+::-moz-selection { /* For Firefox */
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* Style for Font Awesome icons to match theme */
+.icon.fa-brands, .icon.fa-solid {
+    font-size: 2rem; /* Match size of old image icons */
+    color: var(--text);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   NEW PROJECT SECTION STYLING
+   ========================================================================== */
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--panel);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 6px 22px rgba(2, 6, 12, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.project-item .project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.project-content .project-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+    background-color: rgba(110, 231, 183, 0.1);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-links .btn {
+    margin-right: 0.5rem;
+}

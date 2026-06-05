@@ -56,7 +56,7 @@ metadata:
   labels:
     app: portfolio-backend
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: portfolio-backend
@@ -101,7 +101,7 @@ metadata:
   labels:
     app: portfolio-website
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: portfolio-website

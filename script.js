@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // 0. Visitor counter dynamic fetch from Backend API
-    const visitorEl = document.getElementById('visitor-count-fixed');
+    const visitorEl = document.getElementById('visitor-count-footer');
     if (visitorEl) {
         fetch('/api/visit')
             .then(res => res.json())

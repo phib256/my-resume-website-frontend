@@ -259,31 +259,5 @@ embed.badge-media { overflow: hidden; background: white; border-radius: 4px; }
     .sys-section { padding: 2rem 0; }
     .terminal-body { padding: 1rem; }
     
-    /* Shrink the floating HUD drastically on mobile */
-    #visitor-count-fixed {
-        font-size: 0.65rem;
-        padding: 5px 8px;
-        bottom: 10px;
-        right: 10px;
-        border-width: 1px;
-    }
-}
-
-/* Floating Visitor Count HUD */
-#visitor-count-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(10, 10, 10, 0.9);
-    border: 1px solid var(--neon-green);
-    padding: 10px 15px;
-    color: var(--neon-green);
-    font-weight: 800;
-    font-size: 1.1rem;
-    text-shadow: 0 0 10px var(--neon-green);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
-    z-index: 9999;
-    backdrop-filter: blur(5px);
-    pointer-events: none;
 }
 

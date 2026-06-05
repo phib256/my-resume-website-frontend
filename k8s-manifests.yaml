@@ -8,6 +8,8 @@ metadata:
     app: redis
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: redis
@@ -57,6 +59,8 @@ metadata:
     app: portfolio-backend
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: portfolio-backend
@@ -72,7 +76,7 @@ spec:
           image: docker.io/phib256/portfolio-backend:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 808000
           env:
             - name: REDIS_HOST
               value: "redis-service"
@@ -102,6 +106,8 @@ metadata:
     app: portfolio-website
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: portfolio-website
@@ -117,7 +123,7 @@ spec:
           image: docker.io/phib256/portfolio-website:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 
 ---
 # Frontend Service

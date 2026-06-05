@@ -76,7 +76,7 @@ spec:
           image: docker.io/phib256/portfolio-backend:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 808000
+            - containerPort: 8000
           env:
             - name: REDIS_HOST
               value: "redis-service"

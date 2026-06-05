@@ -54,7 +54,7 @@ function loadLocalBadges() {
     const container = document.getElementById('badges');
     if (!container) return;
     
-    fetch('./assets/badges.json')
+    fetch('./assets/badges.json?v=' + new Date().getTime())
         .then(r => { if (!r.ok) throw new Error('Manifest not found'); return r.json(); })
         .then(list => {
             if (!Array.isArray(list) || list.length === 0) return;

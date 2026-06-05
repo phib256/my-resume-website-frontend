@@ -65,7 +65,7 @@ function loadLocalBadges() {
                 
                 // Route ACE cert to its specific credly URL
                 let linkUrl = 'https://www.credly.com/users/ronald-mugume.c99a0f0d/badges';
-                if (fname.includes('AssociateCloudEngineer')) {
+                if (fname.includes('ace') || fname.includes('AssociateCloudEngineer')) {
                     linkUrl = 'https://www.credly.com/badges/f5d41ba3-970c-4730-88b2-433a6af1f94a/public_url';
                 }
 

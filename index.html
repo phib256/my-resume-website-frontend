@@ -3,222 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Ronald Mugume | SYSTEM.ROOT</title>
+    <!-- Hardcore Developer Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">Ronald Mugume</div>
-        <div>
-            <ul class="nav-links" id="desktop-nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
- 
-    <nav id="hamburger-nav">
-        <div class="logo">Ronald Mugume</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
-        </div>
-    </nav>
-    <section id="profile">
-        <div class="section_pic-container">
-            <img src="./assets/profile-pic.png" alt="Ronald Mugume profile picture" class="profile-img">
-        </div>
+    <div class="scanlines"></div>
+    <div class="cursor-block"></div>
 
-        <div class="section_text">
-            <p class="section_text_p1">Ronald Mugume</p>
-            <h1 class="title">Ronald Mugume</h1>
-            <p class="section_text_p2">Multi-Cloud Engineer & Automation Expert</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" id="download-cv-btn"> Download CV</button>
-                <button class="btn btn-color-1" id="contact-info-btn"> Contact Info</button>
+    <nav id="desktop-nav" class="terminal-nav">
+        <div class="logo">[RONALD_MUGUME]</div>
+        <ul class="nav-links">
+            <li><a href="#about">> ./about</a></li>
+            <li><a href="#experience">> ./experience</a></li>
+            <li><a href="#projects">> ./projects</a></li>
+            <li><a href="#contact">> ./contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="terminal-wrapper">
+        <div class="terminal-window">
+            <div class="terminal-bar">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="title">ronald@cloud-engine: ~/portfolio</div>
             </div>
-            <div id="socials-container">
-                <i class="fa-brands fa-linkedin icon" data-href="https://www.linkedin.com/in/ronaldmugume" aria-label="My LinkedIn profile"></i>
-                <i class="fa-brands fa-github icon" data-href="https://www.github.com/phib256" aria-label="My Github profile"></i>
-            </div>
-                <!-- Credly badges placeholder (paste your badge <img> tags here for now) -->
-                <h3 id="badges-heading">Badges &amp; Certifications</h3>
-                                <div id="badges" class="badges-container">
-                                  <!-- Local badges will be rendered here from assets/badges.json -->
+            
+            <div class="terminal-body">
+                
+                <!-- PROFILE -->
+                <section id="profile" class="sys-section">
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> ./execute_profile.sh</div>
+                    <div class="profile-content">
+                        <div class="profile-text glitch-container">
+                            <h1 class="glitch" data-text="RONALD MUGUME">RONALD MUGUME</h1>
+                            <p class="sys-role">>> ENTERPRISE CLOUD ARCHITECT & INFRASTRUCTURE ENGINEER</p>
+                            <div class="btn-group">
+                                <button class="cli-btn" id="download-cv-btn">[ DOWNLOAD_CV.pdf ]</button>
+                                <button class="cli-btn primary" id="contact-info-btn">[ INITIATE_CONTACT ]</button>
+                            </div>
+                            <div class="social-links">
+                                <i class="fa-brands fa-linkedin icon" data-href="https://www.linkedin.com/in/ronaldmugume"></i>
+                                <i class="fa-brands fa-github icon" data-href="https://www.github.com/phib256"></i>
+                            </div>
+                            
+                            <div class="sys-badges-container">
+                                <h3 class="cli-prompt"><span>ronald@cloud-engine:~$</span> cat certs.log</h3>
+                                <div id="badges" class="badges-grid">
+                                    <!-- Badges load here -->
                                 </div>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section_text_p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <!-- About picture removed as requested -->
-            <div class="section_pic-container">
-                <!-- image intentionally removed -->
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container info-card">
-                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
-                        <h3>Experience</h3>
-                        <p>3+ years <br>Cloud & Platform Engineering</p>
+                            </div>
+                        </div>
+                        <div class="profile-image-container">
+                            <img src="./assets/profile-pic.png" alt="Profile" class="hacker-img">
+                            <div class="img-overlay"></div>
+                        </div>
                     </div>
-                    <div class="details-container info-card">
-                        <img src="./assets/education.png" alt="Educcation icon" class="icon">
-                        <h3> Education</h3>
-                        <p>B.Sc. IT & Computing</p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p>As a certified Cloud Engineer with over three years of hands-on experience, I specialize in architecting and automating scalable, secure, and resilient infrastructure across GCP, AWS, and Azure. My expertise lies in using Kubernetes and Terraform to build robust platforms that drive business innovation and operational excellence.</p>
-                </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="about-arrow">
-    </section>
-    <section id="experience" class="timeline-section">
-        <p class="section_text_p1">Explore My</p>
-        <h1 class="title">Experience</h1>
+                </section>
 
-        <!-- Timeline wrapper -->
-        <div class="timeline">
-            <!-- Each timeline-item can represent either a role or a skill cluster -->
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>Multi-Cloud Architecture</h3>
-                    <p class="muted">GCP | AWS | Azure</p>
-                    <ul class="timeline-list">
-                        <li><strong>Cloud Platforms</strong> — Architecting solutions on GCP, AWS, and Azure for optimal performance and cost.</li>
-                        <li><strong>IaC</strong> — Infrastructure as Code with Terraform to provision and manage clusters.</li>
-                        <li><strong>Observability</strong> — Logging, monitoring and alerting with Stackdriver/Prometheus.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>Kubernetes & Container Orchestration</h3>
-                    <p class="muted">GKE | EKS | AKS | Docker | Helm</p>
-                    <ul class="timeline-list">
-                        <li><strong>Cluster Management</strong> — Deploying and managing production-grade Kubernetes clusters on GKE, EKS, and AKS.</li>
-                        <li><strong>Containerization</strong> — Building optimized, secure container images with Docker for microservices.</li>
-                        <li><strong>Security</strong> — Workloads hardening, RBAC, and least-privilege IAM.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>DevOps & Automation</h3>
-                    <p class="muted">Python | Bash | CI/CD | Git</p>
-                    <ul class="timeline-list">
-                        <li><strong>Automation</strong> — Developing Python and Bash scripts to automate routine infrastructure tasks and reduce manual effort.</li>
-                        <li><strong>CI/CD Pipelines</strong> — Implementing automated build, test, and deployment pipelines with GitHub Actions.</li>
-                        <li><strong>Problem Solving</strong> — Troubleshooting systems at scale.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="experience-arrow">
-    </section>
-    <section id="projects">
-        <p class="section_text_p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="project-list">
-            <!-- Project 1: GKE -->
-            <div class="project-item">
-                <img src="./assets/project-1.png" alt="GCP and GKE project illustration" class="project-img">
-                <div class="project-content">
-                    <h3 class="project-title">Automated GKE Cluster Provisioning</h3>
-                    <p class="project-description">A Terraform module to deploy a production-ready Google Kubernetes Engine (GKE) cluster, complete with networking, node pools, and IAM configurations, reducing setup time by over 90%.</p>
-                    <div class="project-tags">
-                        <span>Terraform</span><span>GCP</span><span>Kubernetes (GKE)</span><span>IaC</span>
+                <!-- ABOUT -->
+                <section id="about" class="sys-section">
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> cat about_me.txt</div>
+                    <div class="sys-data-block">
+                        <p class="aggressive-copy">
+                            I don't just deploy infrastructure; I engineer the digital backbone of modern enterprises. In the cloud, downtime is lost revenue. Operating deep within GCP, AWS, and Azure, I specialize in architecting highly available, fault-tolerant environments that scale dynamically and protect the bottom line. 
+                        </p>
+                        <br>
+                        <p class="aggressive-copy">
+                            I replace fragile manual processes with ironclad, immutable infrastructure using Terraform and Kubernetes. Whether it's executing zero-downtime deployments, enforcing strict zero-trust security, or drastically reducing compute costs, I deliver cloud solutions that businesses can bet their entire operations on.
+                        </p>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-val">3+</span>
+                                <span class="stat-label">YEARS_EXP</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-val">99.999%</span>
+                                <span class="stat-label">UPTIME_FOCUSED</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/phib256/Provisioning-a-GKE-cluster-with-Terraform" target="_blank" class="btn btn-color-1">View Code</a>
-                    </div>
-                </div>
-            </div>
+                </section>
 
-            <!-- Project 2: EKS -->
-            <div class="project-item">
-                <img src="./assets/project-2.png" alt="AWS and EKS project illustration" class="project-img">
-                <div class="project-content">
-                    <h3 class="project-title">Scalable EKS Infrastructure with Terraform</h3>
-                    <p class="project-description">This project automates the creation of a scalable and secure Amazon EKS cluster. It includes VPC setup, managed node groups, and integration with AWS load balancers for high availability.</p>
-                    <div class="project-tags">
-                        <span>Terraform</span><span>AWS</span><span>Kubernetes (EKS)</span><span>VPC</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/phib256/Provisioning-a-EKS-Cluster-with-Terraform" target="_blank" class="btn btn-color-1">View Code</a>
-                    </div>
-                </div>
-            </div>
+                <!-- EXPERIENCE -->
+                <section id="experience" class="sys-section">
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> tail -f /var/log/experience.log</div>
+                    
+                    <div class="data-stream">
+                        <div class="log-entry">
+                            <h3>[ ENTERPRISE CLOUD ARCHITECTURE ]</h3>
+                            <p class="sys-muted">ENV: GCP | AWS | AZURE</p>
+                            <ul>
+                                <li>> Architected multi-region, highly-available environments across the big three public clouds.</li>
+                                <li>> Executed aggressive cost-optimization strategies and disaster recovery plans, ensuring infrastructure scales seamlessly with traffic spikes while maximizing ROI.</li>
+                            </ul>
+                        </div>
 
-            <!-- Project 3: AKS -->
-            <div class="project-item">
-                <img src="./assets/project-3.png" alt="Azure and AKS project illustration" class="project-img">
-                <div class="project-content">
-                    <h3 class="project-title">Repeatable AKS Deployments via IaC</h3>
-                    <p class="project-description">An Infrastructure as Code solution for deploying Azure Kubernetes Service (AKS) clusters. The code defines the virtual network, subnets, and cluster configuration for consistent, repeatable environments.</p>
-                    <div class="project-tags">
-                        <span>Terraform</span><span>Azure</span><span>Kubernetes (AKS)</span><span>Networking</span>
+                        <div class="log-entry">
+                            <h3>[ KUBERNETES & CONTAINER PLATFORMS ]</h3>
+                            <p class="sys-muted">ENV: GKE | EKS | AKS | DOCKER</p>
+                            <ul>
+                                <li>> Commanded large-scale production deployments on managed Kubernetes services.</li>
+                                <li>> Implemented zero-downtime rollout strategies, hardened cluster security via strict RBAC, and optimized pod allocation to squeeze maximum performance out of every node.</li>
+                            </ul>
+                        </div>
+
+                        <div class="log-entry">
+                            <h3>[ INFRASTRUCTURE AS CODE & SRE ]</h3>
+                            <p class="sys-muted">ENV: TERRAFORM | PYTHON | CI/CD | PROMETHEUS</p>
+                            <ul>
+                                <li>> Transformed legacy workflows into immutable infrastructure. Forged advanced CI/CD pipelines in GitHub Actions that ship code flawlessly.</li>
+                                <li>> Dialed in comprehensive observability using Prometheus and Stackdriver to catch and resolve anomalies before they impact end-users.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/phib256/Provisioning-an-AKS-cluster-with-terraform" target="_blank" class="btn btn-color-1">View Code</a>
+                </section>
+
+                <!-- PROJECTS -->
+                <section id="projects" class="sys-section">
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> ls -la ./projects</div>
+                    <div class="projects-grid">
+                        
+                        <div class="project-box">
+                            <div class="project-header">drwxr-xr-x  gke_cluster</div>
+                            <img src="./assets/project-1.png" alt="GKE" class="project-img-scan">
+                            <p class="sys-desc">Engineered a production-ready Google Kubernetes Engine (GKE) environment using a custom Terraform module. Delivered a highly-secure architecture with private node pools and strict IAM boundaries, reducing deployment time by over 90%.</p>
+                            <div class="tags"><span class="tag">GCP</span><span class="tag">K8S</span><span class="tag">TERRAFORM</span></div>
+                            <a href="https://github.com/phib256/Provisioning-a-GKE-cluster-with-Terraform" target="_blank" class="cli-btn">[ VIEW_SOURCE ]</a>
+                        </div>
+
+                        <div class="project-box">
+                            <div class="project-header">drwxr-xr-x  eks_infra</div>
+                            <img src="./assets/project-2.png" alt="EKS" class="project-img-scan">
+                            <p class="sys-desc">Designed and automated an enterprise-grade Amazon EKS architecture. Integrated AWS Load Balancer Controllers within a hardened VPC network, providing a highly-available foundation for microservice workloads.</p>
+                            <div class="tags"><span class="tag">AWS</span><span class="tag">K8S</span><span class="tag">VPC</span></div>
+                            <a href="https://github.com/phib256/Provisioning-a-EKS-Cluster-with-Terraform" target="_blank" class="cli-btn">[ VIEW_SOURCE ]</a>
+                        </div>
+
+                        <div class="project-box">
+                            <div class="project-header">drwxr-xr-x  aks_deploy</div>
+                            <img src="./assets/project-3.png" alt="AKS" class="project-img-scan">
+                            <p class="sys-desc">Developed an idempotent Infrastructure as Code pipeline for deploying resilient Azure Kubernetes Service (AKS) clusters. The solution guarantees repeatable environments with meticulously configured virtual networks.</p>
+                            <div class="tags"><span class="tag">AZURE</span><span class="tag">K8S</span><span class="tag">NETWORK</span></div>
+                            <a href="https://github.com/phib256/Provisioning-an-AKS-cluster-with-terraform" target="_blank" class="cli-btn">[ VIEW_SOURCE ]</a>
+                        </div>
+
                     </div>
-                </div>
+                </section>
+
+                <!-- CONTACT -->
+                <section id="contact" class="sys-section">
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> ping -c 4 ronald_contact</div>
+                    <div class="contact-panel">
+                        <div class="contact-line">
+                            <span class="sys-muted">PROTOCOL: SMTP -></span> 
+                            <a href="mailto:ronniemugs@gmail.com" class="neon-link">ronniemugs@gmail.com</a>
+                        </div>
+                        <div class="contact-line">
+                            <span class="sys-muted">PROTOCOL: HTTPS -></span> 
+                            <a href="https://www.linkedin.com/in/ronaldmugume" class="neon-link">LINKEDIN_PROFILE</a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="sys-footer">
+                    <p>SYSTEM SECURED. (C) 2024 RONALD MUGUME. ALL RIGHTS RESERVED.</p>
+                </footer>
             </div>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" id="projects-arrow">
-    </section>
-    <section id="contact">
-        <p class="section_text_p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <i class="fa-solid fa-envelope icon contact-icon"></i>
-                <p><a href="mailto:ronniemugs@gmail.com">ronniemugs@gmail.com</a></p>
-            </div>
-            <div class="contact-info-container">
-                <i class="fa-brands fa-linkedin icon contact-icon"></i>
-                <p><a href="https://www.linkedin.com/in/ronaldmugume">LinkedIn</a></p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-        <p>Copyright &#169; 2024 Ronald Mugume. All Rights Reserved.</p>
-    </footer>
+    </main>
+
     <script src="script.js"></script>
-    <!-- Fixed visitor counter -->
-    <div id="visitor-count-fixed" aria-live="polite">Visited by 0 people</div>
 </body>
 </html>

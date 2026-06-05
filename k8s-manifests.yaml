@@ -70,6 +70,7 @@ spec:
         app: portfolio-backend
     spec:
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       nodeName: node1
       containers:
         - name: backend
@@ -117,6 +118,7 @@ spec:
         app: portfolio-website
     spec:
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       nodeName: node1
       containers:
         - name: nginx

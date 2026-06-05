@@ -1,35 +1,5 @@
 ---
-# PersistentVolumeClaim for Frontend Assets (Optional, kept for legacy compatibility)
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: portfolio-webroot-pvc
-  labels:
-    app: portfolio-website
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-
----
-# PersistentVolumeClaim for Redis Database
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: redis-data-pvc
-  labels:
-    app: redis
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
-
----
-# Redis Deployment
+# Redis Deployment with hostPath for Baremetal Persistence
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,6 +16,7 @@ spec:
       labels:
         app: redis
     spec:
+      nodeName: node1 # Pin to node1 to ensure hostPath data is always found
       containers:
         - name: redis
           image: redis:7-alpine
@@ -57,8 +28,9 @@ spec:
               mountPath: /data
       volumes:
         - name: redis-data
-          persistentVolumeClaim:
-            claimName: redis-data-pvc
+          hostPath:
+            path: /opt/redis-data
+            type: DirectoryOrCreate
 
 ---
 # Redis Service
@@ -95,7 +67,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: phib256/portfolio-backend:latest
+          image: docker.io/phib256/portfolio-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
@@ -119,7 +91,7 @@ spec:
     app: portfolio-backend
 
 ---
-# Frontend Deployment
+# Frontend Deployment (No PVC, served directly from the Docker Image)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -136,27 +108,12 @@ spec:
       labels:
         app: portfolio-website
     spec:
-      initContainers:
-        - name: populate-pvc
-          image: phib256/portfolio-website:latest
-          imagePullPolicy: Always
-          command: ['sh', '-c', 'cp -r /usr/share/nginx/html/* /mnt/webroot/ || true']
-          volumeMounts:
-            - name: webroot-volume
-              mountPath: /mnt/webroot
       containers:
         - name: nginx
-          image: phib256/portfolio-website:latest
+          image: docker.io/phib256/portfolio-website:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: webroot-volume
-              mountPath: /usr/share/nginx/html
-      volumes:
-        - name: webroot-volume
-          persistentVolumeClaim:
-            claimName: portfolio-webroot-pvc
 
 ---
 # Frontend Service

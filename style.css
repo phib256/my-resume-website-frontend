@@ -253,6 +253,13 @@ embed.badge-media { overflow: hidden; background: white; border-radius: 4px; }
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     .btn-group { flex-direction: column; width: 100%; }
     .cli-btn { width: 100%; text-align: center; }
-    .stats-grid { flex-direction: column; gap: 1.5rem; text-align: center; }
     .contact-panel { word-break: break-all; }
+    
+    /* Fix iOS Safari PDF Embed Viewport Blowout */
+    .sturdy-badge embed { display: none; }
+    .sturdy-badge::after { content: '[ CERTIFICATE SECURED ]\n(View on Desktop)'; white-space: pre-wrap; color: var(--neon-cyan); text-align: center; font-size: 0.8rem; padding: 10px; }
+    
+    /* Refine section padding for mobile */
+    .sys-section { padding: 2rem 0; }
+    .terminal-body { padding: 1rem; }
 }

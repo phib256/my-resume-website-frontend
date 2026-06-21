@@ -893,6 +893,27 @@ h1, h2, h3, h4 {
     .sturdy-badge { width: 100px; height: 100px; padding: 10px; }
     .sturdy-badge::before { display: none; }
     .badges-grid { gap: 1rem; justify-content: center; }
+
+    /* Button and Header Scaling for iPhone 15 */
+    .hero-btn-group, .btn-group {
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+        width: 100% !important;
+    }
+    .hero-btn-group .cli-btn, .btn-group .cli-btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    h3 {
+        font-size: 0.9rem !important;
+        word-break: break-word;
+    }
+    .box-header h3 {
+        font-size: 0.75rem !important;
+    }
+    .cli-prompt {
+        font-size: 0.9rem !important;
+    }
 }
 
 /* Fallback for Touch Devices */

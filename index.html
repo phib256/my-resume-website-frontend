@@ -179,6 +179,23 @@
         </div>
     </main>
 
-    <script src="script.js?v=6.0"></script>
+    <!-- Terminal Demo Modal -->
+    <div id="demo-modal" class="modal-overlay" style="display: none;">
+        <div class="terminal-window modal-window">
+            <div class="terminal-bar">
+                <div class="dots">
+                    <div class="dot red" id="close-modal-btn"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="title" id="modal-title">DEMO_SIMULATION.SH</div>
+            </div>
+            <div class="terminal-body modal-body" id="modal-terminal-body">
+                <!-- Typed output will go here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

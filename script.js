@@ -46,9 +46,128 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 2.5 Live Demo modal click interception
+    document.querySelectorAll('#projects .cli-btn.primary').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = btn.getAttribute('href');
+            const project = href.includes('uptime') ? 'uptime_kuma' : 'erpnext';
+            openCliDemo(project, href);
+        });
+    });
+
+    document.getElementById('close-modal-btn')?.addEventListener('click', closeDemoModal);
+    document.getElementById('demo-modal')?.addEventListener('click', (e) => {
+        if (e.target.id === 'demo-modal') closeDemoModal();
+    });
+
     // 3. Load Badges (Handling PDFs perfectly in sturdy frames)
     loadLocalBadges();
 });
+
+let isTyping = false;
+let typingTimeout = null;
+
+const demoSequences = {
+    erpnext: [
+        { type: 'input', text: './test_erpnext_deployment.sh' },
+        { type: 'output', text: '[SYS_INFO] Initializing diagnostics sequence for namespace: erpnext...' },
+        { type: 'output', text: '[SYS_INFO] Checking local Netplan & routing tables... [ OK ]' },
+        { type: 'output', text: '[SYS_INFO] Checking Cloudflare Tunnel daemon (cloudflared)...' },
+        { type: 'output', text: '  ● cloudflared.service - cloudflared\n    Active: active (running) since Sat 2026-06-20 11:38:17 EAT\n    Tunnel e378929b-c524-4aab-8625-d8a6df82ae00 active at NBO Edge.' },
+        { type: 'output', text: '[SYS_INFO] Querying active Kubernetes pods in namespace: erpnext' },
+        { type: 'output', text: 'NAME                                      READY   STATUS      RESTARTS   AGE\nerpnext-gunicorn-78b49f889c-sntjx         1/1     Running     2          3d\nerpnext-nginx-688cc74cb9-sdfqj            1/1     Running     2          3d\nerpnext-mariadb-sts-0                     1/1     Running     1          3d\nerpnext-scheduler-798cb86f75-psrf2        1/1     Running     404        3d\nerpnext-socketio-7c54c95d7d-fxd2k         1/1     Running     5          3d\nerpnext-worker-d-8969fd6d8-wp8nm          1/1     Running     404        3d\nerpnext-valkey-cache-6cc6ddcfd5-fwjp5     1/1     Running     1          3d' },
+        { type: 'output', text: '[SYS_INFO] Testing local HTTP route at http://localhost:30081...' },
+        { type: 'output', text: '  HTTP/1.1 200 OK (Served from Nginx ingress, DB connection active)' },
+        { type: 'success', text: '\n[SUCCESS] ERPNext cluster deployment is fully operational! 🟢' }
+    ],
+    uptime_kuma: [
+        { type: 'input', text: './test_uptime_kuma.sh' },
+        { type: 'output', text: '[SYS_INFO] Initializing diagnostics sequence for Uptime Kuma...' },
+        { type: 'output', text: '[SYS_INFO] Checking hostNetwork bindings... [ OK ] (listening on hostPort 3001)' },
+        { type: 'output', text: '[SYS_INFO] Validating hostPath persistent volume mount...' },
+        { type: 'output', text: '  /home/phib/uptime-kuma/data/db-config.json ... [ FOUND ]' },
+        { type: 'output', text: '[SYS_INFO] Checking Kubernetes pod status:' },
+        { type: 'output', text: 'NAME                               READY   STATUS    RESTARTS   AGE\nuptime-kuma-656b4bbbc5-bb6pz       1/1     Running   0          19h' },
+        { type: 'output', text: '[SYS_INFO] Simulating ping diagnostics from container namespace:' },
+        { type: 'output', text: '  ping -c 3 192.168.30.10 (PBX 01)\n  64 bytes from 192.168.30.10: icmp_seq=1 ttl=64 time=1.84 ms\n  64 bytes from 192.168.30.10: icmp_seq=2 ttl=64 time=1.92 ms\n  3 packets transmitted, 3 received, 0% packet loss\n\n  ping -c 3 192.168.30.11 (PBX 02)\n  64 bytes from 192.168.30.11: icmp_seq=1 ttl=64 time=1.75 ms\n  64 bytes from 192.168.30.11: icmp_seq=2 ttl=64 time=1.81 ms\n  3 packets transmitted, 3 received, 0% packet loss' },
+        { type: 'success', text: '\n[SUCCESS] Monitoring routes and PBX pings are fully operational! 🟢' }
+    ]
+};
+
+function openCliDemo(project, liveUrl) {
+    const modal = document.getElementById('demo-modal');
+    const termBody = document.getElementById('modal-terminal-body');
+    if (!modal || !termBody) return;
+
+    modal.style.display = 'flex';
+    termBody.innerHTML = '';
+    isTyping = true;
+    
+    document.body.style.overflow = 'hidden'; // Lock background scroll
+
+    let stepIndex = 0;
+    const steps = demoSequences[project];
+
+    function runNextStep() {
+        if (!isTyping || stepIndex >= steps.length) {
+            isTyping = false;
+            // Append final redirection link
+            const redirectLine = document.createElement('div');
+            redirectLine.className = 'modal-line modal-success';
+            redirectLine.innerHTML = `\n[REDIRECT] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_OPEN_LIVE_DEMO</a>`;
+            termBody.appendChild(redirectLine);
+            termBody.scrollTop = termBody.scrollHeight;
+            return;
+        }
+
+        const step = steps[stepIndex];
+        const line = document.createElement('div');
+        termBody.appendChild(line);
+
+        if (step.type === 'input') {
+            line.className = 'modal-line modal-prompt';
+            line.innerHTML = `<span>ronald@cloud-engine:~$</span> `;
+            
+            let charIndex = 0;
+            function typeChar() {
+                if (!isTyping) return;
+                if (charIndex < step.text.length) {
+                    line.innerHTML += step.text[charIndex];
+                    charIndex++;
+                    termBody.scrollTop = termBody.scrollHeight;
+                    typingTimeout = setTimeout(typeChar, 30);
+                } else {
+                    stepIndex++;
+                    typingTimeout = setTimeout(runNextStep, 500);
+                }
+            }
+            typeChar();
+        } else {
+            if (step.type === 'success') {
+                line.className = 'modal-line modal-success';
+            } else if (step.type === 'error') {
+                line.className = 'modal-line modal-error';
+            } else {
+                line.className = 'modal-line modal-output';
+            }
+            line.textContent = step.text;
+            termBody.scrollTop = termBody.scrollHeight;
+            stepIndex++;
+            typingTimeout = setTimeout(runNextStep, 400);
+        }
+    }
+
+    runNextStep();
+}
+
+function closeDemoModal() {
+    isTyping = false;
+    clearTimeout(typingTimeout);
+    const modal = document.getElementById('demo-modal');
+    if (modal) modal.style.display = 'none';
+    document.body.style.overflow = ''; // Unlock background scroll
+}
 
 function loadLocalBadges() {
     const container = document.getElementById('badges');

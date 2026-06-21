@@ -318,3 +318,12 @@ embed.badge-media { overflow: hidden; background: white; border-radius: 4px; }
     
 }
 
+@media (hover: none) {
+    .cursor-block {
+        display: none !important;
+    }
+    * {
+        cursor: auto !important;
+    }
+}
+

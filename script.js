@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Terminal Block Cursor Tracking
     const cursor = document.querySelector('.cursor-block');
-    if (cursor) {
+    if (cursor && window.matchMedia('(hover: hover)').matches) {
         window.addEventListener('mousemove', (e) => {
+            cursor.style.display = 'block';
             cursor.style.left = `${e.clientX + 5}px`;
             cursor.style.top = `${e.clientY + 5}px`;
         });
@@ -27,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide cursor when leaving window
         document.addEventListener('mouseleave', () => { cursor.style.display = 'none'; });
         document.addEventListener('mouseenter', () => { cursor.style.display = 'block'; });
+    } else if (cursor) {
+        cursor.style.display = 'none';
     }
 
     // 2. Button links

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8.0">
+    <link rel="stylesheet" href="style.css?v=9.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
@@ -153,33 +153,14 @@
                 </div>
 
                 <!-- Box 4: Athlete Telemetry (Strava Integration) -->
-                <div class="bento-box bento-large glass-card glow-orange">
+                <!-- Box 4: Athlete Telemetry (Strava Integration) -->
+                <div class="bento-box bento-large glass-card glow-orange" id="strava-bento-box">
                     <div class="box-header">
                         <i class="fa-brands fa-strava box-icon strava-orange"></i>
-                        <h3 class="strava-orange">[ ATHLETE_TELEMETRY_FEED ]</h3>
+                        <h3 class="strava-orange">[ ATHLETE_TELEMETRY_FEED ] <span id="strava-status-tag" style="font-size:0.75rem; margin-left:10px;"></span></h3>
                     </div>
-                    <div class="box-content flex-row">
-                        <div class="strava-metrics">
-                            <div class="strava-stat">
-                                <span class="stat-num text-orange">4:32</span>
-                                <span class="stat-lbl">KM PACE (10K RUN)</span>
-                            </div>
-                            <div class="strava-stat">
-                                <span class="stat-num">180.4 KM</span>
-                                <span class="stat-lbl">MONTHLY VOLUME</span>
-                            </div>
-                            <div class="strava-stat">
-                                <span class="stat-num">58</span>
-                                <span class="stat-lbl">VO2 MAX (SUPERIOR)</span>
-                            </div>
-                        </div>
-                        <div class="strava-route-viz">
-                            <svg class="run-path" viewBox="0 0 100 60">
-                                <path d="M10,40 Q25,10 40,30 T70,20 T90,50" fill="none" stroke="#ff6b00" stroke-width="2" />
-                                <circle cx="90" cy="50" r="3" fill="#ff0000" class="pulse-node-orange" />
-                            </svg>
-                            <span class="route-label">LAST MARATHON LOGGED IN NAIROBI</span>
-                        </div>
+                    <div id="strava-card-container" style="width:100%; height:100%;">
+                        <!-- Dynamic content loaded via JS -->
                     </div>
                 </div>
             </div>
@@ -357,6 +338,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=8.0"></script>
+    <script src="script.js?v=9.0"></script>
 </body>
 </html>

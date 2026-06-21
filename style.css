@@ -874,14 +874,25 @@ h1, h2, h3, h4 {
 
 @media screen and (max-width: 768px) {
     .glass-nav { padding: 1rem 5%; }
-    .nav-links { display: none; } /* Mobile Burger Navigation can be implemented if needed, or simple scrolling */
+    .nav-links { display: none; }
     .page-container { padding: 6rem 5% 2rem 5%; }
+    .glass-card { padding: 1.5rem; }
+    .gradient-text { font-size: 2.2rem; word-wrap: break-word; }
     .projects-grid { grid-template-columns: 1fr; }
     .time-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
-    .gradient-text { font-size: 2.5rem; }
+    .timeline-item { padding-left: 1.5rem; }
     .flex-row { flex-direction: column; align-items: flex-start; }
     .strava-route-viz { width: 100%; }
     .floating-telemetry-hud { bottom: 15px; right: 15px; font-size: 0.75rem; padding: 0.5rem 1rem; }
+    
+    /* Bento Responsive Grid */
+    .bento-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+    .telemetry-list li { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+    
+    /* Badges Scaling for Mobile */
+    .sturdy-badge { width: 100px; height: 100px; padding: 10px; }
+    .sturdy-badge::before { display: none; }
+    .badges-grid { gap: 1rem; justify-content: center; }
 }
 
 /* Fallback for Touch Devices */

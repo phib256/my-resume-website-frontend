@@ -64,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.id === 'demo-modal') closeDemoModal();
     });
 
+    // 2.8. Strava Integration Flow
+    initStravaBento();
+
     // 3. Load Badges (Handling PDFs perfectly in sturdy frames)
     loadLocalBadges();
 });
@@ -213,4 +216,76 @@ function loadLocalBadges() {
         .catch(err => {
             console.error('[SYS_ERROR] Failed to load certs.log:', err);
         });
+}
+
+function initStravaBento() {
+    const container = document.getElementById('strava-card-container');
+    const statusTag = document.getElementById('strava-status-tag');
+    if (!container) return;
+
+    // Check query params
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('strava_connected') === 'true') {
+        localStorage.setItem('strava_connected', 'true');
+        // Clean URL parameter
+        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+    }
+
+    const isConnected = localStorage.getItem('strava_connected') === 'true';
+
+    if (isConnected) {
+        if (statusTag) statusTag.innerHTML = `<span style="color:var(--neon-green); font-weight:700;">[ ONLINE ]</span>`;
+        container.innerHTML = `
+            <div class="box-content flex-row" style="margin-top: 1rem;">
+                <div class="strava-metrics">
+                    <div class="strava-stat">
+                        <span class="stat-num text-orange">4:32</span>
+                        <span class="stat-lbl">KM PACE (10K RUN)</span>
+                    </div>
+                    <div class="strava-stat">
+                        <span class="stat-num">180.4 KM</span>
+                        <span class="stat-lbl">MONTHLY VOLUME</span>
+                    </div>
+                    <div class="strava-stat">
+                        <span class="stat-num">58</span>
+                        <span class="stat-lbl">VO2 MAX (SUPERIOR)</span>
+                    </div>
+                </div>
+                <div class="strava-route-viz">
+                    <svg class="run-path" viewBox="0 0 100 60">
+                        <path d="M10,40 Q25,10 40,30 T70,20 T90,50" fill="none" stroke="#ff6b00" stroke-width="2" />
+                        <circle cx="90" cy="50" r="3" fill="#ff0000" class="pulse-node-orange" />
+                    </svg>
+                    <span class="route-label">LAST MARATHON LOGGED IN NAIROBI</span>
+                </div>
+            </div>
+            <div style="text-align: right; margin-top: 1.5rem;">
+                <a href="#" id="strava-disconnect-link" style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted); text-decoration:underline; cursor:pointer;">[ DISCONNECT_FEED ]</a>
+            </div>
+        `;
+
+        document.getElementById('strava-disconnect-link')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('strava_connected');
+            initStravaBento();
+        });
+    } else {
+        if (statusTag) statusTag.innerHTML = `<span style="color:var(--text-muted);">[ OFFLINE ]</span>`;
+        container.innerHTML = `
+            <div class="box-content flex-column" style="justify-content: center; align-items: center; text-align: center; padding: 2rem 0; gap: 1rem; height: 100%;">
+                <i class="fa-solid fa-lock" style="font-size: 2.5rem; color: var(--text-muted); opacity: 0.5;"></i>
+                <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                    ATHLETE_TELEMETRY_FEED: SECURED
+                </div>
+                <button class="cli-btn primary" id="strava-connect-btn" style="border-color: var(--neon-orange); color: var(--neon-orange); width: auto; cursor:pointer;">
+                    <i class="fa-brands fa-strava"></i> INITIATE_STRAVA_AUTH
+                </button>
+            </div>
+        `;
+
+        document.getElementById('strava-connect-btn')?.addEventListener('click', () => {
+            window.location.href = "/api/strava/login";
+        });
+    }
 }

@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         location.href = './#contact';
     });
 
-    document.querySelectorAll('.social-links .icon').forEach(icon => {
+    document.querySelectorAll('.social-links .icon, .hero-socials .icon').forEach(icon => {
         icon.addEventListener('click', () => {
             if (icon.dataset.href) {
                 window.open(icon.dataset.href, '_blank');

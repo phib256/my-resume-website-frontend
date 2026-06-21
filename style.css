@@ -243,6 +243,9 @@ h1, h2, h3, h4 {
     gap: 1.5rem;
 }
 .cli-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.85rem;
@@ -878,6 +881,7 @@ h1, h2, h3, h4 {
     .page-container { padding: 6rem 5% 2rem 5%; }
     .glass-card { padding: 1.5rem; }
     .gradient-text { font-size: 2.2rem; word-wrap: break-word; }
+    .sub-gradient-text { font-size: 1.6rem !important; line-height: 1.2 !important; letter-spacing: -0.5px !important; }
     .projects-grid { grid-template-columns: 1fr; }
     .time-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
     .timeline-item { padding-left: 1.5rem; }
@@ -896,13 +900,16 @@ h1, h2, h3, h4 {
 
     /* Button and Header Scaling for iPhone 15 */
     .hero-btn-group, .btn-group {
+        display: flex !important;
         flex-direction: column !important;
         gap: 0.8rem !important;
         width: 100% !important;
     }
     .hero-btn-group .cli-btn, .btn-group .cli-btn {
+        display: block !important;
         width: 100% !important;
         text-align: center !important;
+        padding: 0.8rem 1rem !important;
     }
     h3 {
         font-size: 0.9rem !important;

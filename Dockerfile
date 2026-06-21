@@ -7,8 +7,9 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy our custom Nginx configuration (which handles the /api proxy)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the static HTML/CSS/JS assets to the web root
-COPY . /usr/share/nginx/html
+# Copy only public static assets to the web root
+COPY index.html style.css script.js mediaqueries.css 404.html /usr/share/nginx/html/
+COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

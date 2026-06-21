@@ -74,7 +74,7 @@ const demoSequences = {
         { type: 'output', text: '[SYS_INFO] Initializing diagnostics sequence for namespace: erpnext...' },
         { type: 'output', text: '[SYS_INFO] Checking local Netplan & routing tables... [ OK ]' },
         { type: 'output', text: '[SYS_INFO] Checking Cloudflare Tunnel daemon (cloudflared)...' },
-        { type: 'output', text: '  ● cloudflared.service - cloudflared\n    Active: active (running) since Sat 2026-06-20 11:38:17 EAT\n    Tunnel e378929b-c524-4aab-8625-d8a6df82ae00 active at NBO Edge.' },
+        { type: 'output', text: '  ● cloudflared.service - cloudflared\n    Active: active (running) since Sat 2026-06-20 11:38:17 EAT\n    Tunnel xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx active at NBO Edge.' },
         { type: 'output', text: '[SYS_INFO] Querying active Kubernetes pods in namespace: erpnext' },
         { type: 'output', text: 'NAME                                      READY   STATUS      RESTARTS   AGE\nerpnext-gunicorn-78b49f889c-sntjx         1/1     Running     2          3d\nerpnext-nginx-688cc74cb9-sdfqj            1/1     Running     2          3d\nerpnext-mariadb-sts-0                     1/1     Running     1          3d\nerpnext-scheduler-798cb86f75-psrf2        1/1     Running     404        3d\nerpnext-socketio-7c54c95d7d-fxd2k         1/1     Running     5          3d\nerpnext-worker-d-8969fd6d8-wp8nm          1/1     Running     404        3d\nerpnext-valkey-cache-6cc6ddcfd5-fwjp5     1/1     Running     1          3d' },
         { type: 'output', text: '[SYS_INFO] Testing local HTTP route at http://localhost:30081...' },
@@ -90,7 +90,7 @@ const demoSequences = {
         { type: 'output', text: '[SYS_INFO] Checking Kubernetes pod status:' },
         { type: 'output', text: 'NAME                               READY   STATUS    RESTARTS   AGE\nuptime-kuma-656b4bbbc5-bb6pz       1/1     Running   0          19h' },
         { type: 'output', text: '[SYS_INFO] Simulating ping diagnostics from container namespace:' },
-        { type: 'output', text: '  ping -c 3 192.168.30.10 (PBX 01)\n  64 bytes from 192.168.30.10: icmp_seq=1 ttl=64 time=1.84 ms\n  64 bytes from 192.168.30.10: icmp_seq=2 ttl=64 time=1.92 ms\n  3 packets transmitted, 3 received, 0% packet loss\n\n  ping -c 3 192.168.30.11 (PBX 02)\n  64 bytes from 192.168.30.11: icmp_seq=1 ttl=64 time=1.75 ms\n  64 bytes from 192.168.30.11: icmp_seq=2 ttl=64 time=1.81 ms\n  3 packets transmitted, 3 received, 0% packet loss' },
+        { type: 'output', text: '  ping -c 3 10.10.30.10 (PBX 01)\n  64 bytes from 10.10.30.10: icmp_seq=1 ttl=64 time=1.84 ms\n  64 bytes from 10.10.30.10: icmp_seq=2 ttl=64 time=1.92 ms\n  3 packets transmitted, 3 received, 0% packet loss\n\n  ping -c 3 10.10.30.11 (PBX 02)\n  64 bytes from 10.10.30.11: icmp_seq=1 ttl=64 time=1.75 ms\n  64 bytes from 10.10.30.11: icmp_seq=2 ttl=64 time=1.81 ms\n  3 packets transmitted, 3 received, 0% packet loss' },
         { type: 'success', text: '\n[SUCCESS] Monitoring routes and PBX pings are fully operational! 🟢' }
     ]
 };

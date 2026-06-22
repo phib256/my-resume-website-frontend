@@ -8,7 +8,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy only public static assets to the web root
-COPY index.html style.css script.js mediaqueries.css 404.html /usr/share/nginx/html/
+COPY index.html style.css script.js mediaqueries.css 404.html robots.txt sitemap.xml /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
 
 EXPOSE 80

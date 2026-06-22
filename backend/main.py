@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 import redis
@@ -47,7 +47,7 @@ async def health_check():
     return {"status": "healthy"}
 
 @app.get("/api/strava/login", response_class=HTMLResponse)
-async def strava_login():
+async def strava_login(request: Request):
     if not STRAVA_CLIENT_ID or not STRAVA_CLIENT_SECRET:
         # Render a beautiful credentials helper page if variables aren't set yet
         html_content = """
@@ -166,17 +166,17 @@ async def strava_login():
                     &nbsp;&nbsp;STRAVA_CLIENT_SECRET="YOUR_CLIENT_SECRET"
                 </div>
                 
-                <p style="font-size:0.85rem; color:#777;">Note: Register your Strava API App at <a href="https://www.strava.com/settings/api" target="_blank" style="color:var(--strava-orange);">strava.com/settings/api</a>. Set the Authorization Callback Domain to <strong>portfolio.phib.net</strong>.</p>
+                <p style="font-size:0.85rem; color:#777;">Note: Register your Strava API App at <a href="https://www.strava.com/settings/api" target="_blank" style="color:var(--strava-orange);">strava.com/settings/api</a>. Set the Authorization Callback Domain to match your domain (e.g., <strong>phib.net</strong> or <strong>portfolio.phib.net</strong>).</p>
                 
                 <div class="btn-group">
                     <button class="auth-btn" onclick="simulate()">SIMULATE FLOW (MOCK DATA)</button>
-                    <a href="https://portfolio.phib.net" class="back-link">Return to Portfolio</a>
+                    <a href="/" class="back-link">Return to Portfolio</a>
                 </div>
             </div>
             <script>
                 function simulate() {
                     localStorage.setItem('strava_connected', 'true');
-                    window.location.href = "https://portfolio.phib.net/?strava_connected=true";
+                    window.location.href = "/?strava_connected=true";
                 }
             </script>
         </body>
@@ -184,12 +184,17 @@ async def strava_login():
         """
         return HTMLResponse(content=html_content, status_code=200)
 
+    # Dynamic host resolution (defaulting to HTTPS for production)
+    base_url = str(request.base_url).rstrip('/')
+    if base_url.startswith("http://"):
+        base_url = "https://" + base_url[7:]
+
     # If configured, redirect to the real Strava Authorization portal
     authorize_url = (
         f"https://www.strava.com/oauth/authorize"
         f"?client_id={STRAVA_CLIENT_ID}"
         f"&response_type=code"
-        f"&redirect_uri=https://portfolio.phib.net/api/strava/callback"
+        f"&redirect_uri={base_url}/api/strava/callback"
         f"&approval_prompt=auto"
         f"&scope=read,activity:read_all"
     )
@@ -226,7 +231,7 @@ async def strava_callback(code: str):
             
             # Redirect browser back to home page with query param
             return HTMLResponse(
-                content="<html><script>window.location.href='https://portfolio.phib.net/?strava_connected=true';</script></html>",
+                content="<html><script>window.location.href='/?strava_connected=true';</script></html>",
                 status_code=200
             )
     except Exception as e:

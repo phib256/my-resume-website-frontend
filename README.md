@@ -1,4 +1,4 @@
-# Ronald Mugume's Portfolio Website
+# Mugume Ronald's Portfolio Website
 
 This repository contains the source code for my personal portfolio website.
 

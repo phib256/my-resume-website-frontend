@@ -237,6 +237,14 @@ async def get_strava_stats():
     if r.get("strava_connected") != "true":
         return {"connected": False}
         
+    # Check if we have cached stats in Redis to avoid blocking on external APIs
+    try:
+        cached_stats = r.get("strava_stats_cache")
+        if cached_stats:
+            return json.loads(cached_stats)
+    except Exception:
+        pass
+        
     access_token = r.get("strava_access_token")
     refresh_token = r.get("strava_refresh_token")
     expires_at = r.get("strava_expires_at")
@@ -315,13 +323,21 @@ async def get_strava_stats():
             ytd_run_totals = stats_data.get("ytd_run_totals", {})
             ytd_dist = ytd_run_totals.get("distance", 0) / 1000.0
             
-            return {
+            result = {
                 "connected": True,
                 "pace": recent_pace_formatted,
                 "monthly_volume": f"{recent_distance:.1f} KM" if recent_distance > 0 else f"{ytd_dist:.1f} KM (YTD)",
                 "vo2_max": "58",
                 "route_label": route_label.upper()
             }
+            
+            # Cache in Redis for 15 minutes (900 seconds)
+            try:
+                r.setex("strava_stats_cache", 900, json.dumps(result))
+            except Exception:
+                pass
+                
+            return result
     except Exception as e:
         # Fallback to mock defaults if API limit exceeded or athlete stats fails
         return {
@@ -340,6 +356,7 @@ async def strava_disconnect():
         r.delete("strava_expires_at")
         r.delete("strava_athlete_id")
         r.delete("strava_connected")
+        r.delete("strava_stats_cache")
         return {"status": "disconnected"}
     except Exception as e:
         return {"status": "error", "details": str(e)}

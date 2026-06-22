@@ -1,0 +1,18 @@
+tunnel: e378929b-c524-4aab-8625-d8a6df82ae00
+credentials-file: /etc/cloudflared/e378929b-c524-4aab-8625-d8a6df82ae00.json
+protocol: http2
+
+ingress:
+  - hostname: ssh.phib.net
+    service: ssh://localhost:22
+  - hostname: phib.net
+    service: http://localhost:30080
+  - hostname: portfolio.phib.net
+    service: http://localhost:30080
+  - hostname: erpnext.phib.net
+    service: http://localhost:30081
+    originRequest:
+      httpHostHeader: erp.local
+  - hostname: uptime.phib.net
+    service: http://localhost:3001
+  - service: http_status:404

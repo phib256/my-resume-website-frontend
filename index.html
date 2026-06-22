@@ -152,15 +152,51 @@
                     </div>
                 </div>
 
-                <!-- Box 4: Athlete Telemetry (Strava Integration) -->
-                <!-- Box 4: Athlete Telemetry (Strava Integration) -->
-                <div class="bento-box bento-large glass-card glow-orange" id="strava-bento-box">
+                <!-- Box 4: Ingress Gateways & Social Networks -->
+                <div class="bento-box bento-large glass-card glow-orange" id="ingress-bento-box">
                     <div class="box-header">
-                        <i class="fa-brands fa-strava box-icon strava-orange"></i>
-                        <h3 class="strava-orange">[ ATHLETE_TELEMETRY_FEED ] <span id="strava-status-tag" style="font-size:0.75rem; margin-left:10px;"></span></h3>
+                        <i class="fa-solid fa-share-nodes box-icon text-neon-orange"></i>
+                        <h3 class="text-neon-orange">[ INGRESS_GATEWAYS_FEED ] <span style="font-size:0.75rem; margin-left:10px; color:var(--neon-green); font-weight:700;">[ ONLINE ]</span></h3>
                     </div>
-                    <div id="strava-card-container" style="width:100%; height:100%;">
-                        <!-- Dynamic content loaded via JS -->
+                    <div class="box-content flex-row" style="margin-top: 1rem; width:100%; height:100%;">
+                        <div class="network-routes" style="flex: 1; display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <div class="network-route-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; transition: all 0.3s;" onmouseover="this.style.background='rgba(255, 107, 0, 0.05)'; this.style.borderColor='var(--neon-orange)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.04)'">
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fa-brands fa-github" style="font-size: 1.2rem; color: #fff;"></i>
+                                    <span style="font-family: var(--font-mono); font-size: 0.9rem;">GITHUB://phib256</span>
+                                </span>
+                                <a href="https://github.com/phib256" target="_blank" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-orange); text-decoration: none; border: 1px solid var(--neon-orange); padding: 4px 10px; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='var(--neon-orange)'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='var(--neon-orange)'">CONNECT_NODE</a>
+                            </div>
+                            <div class="network-route-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; transition: all 0.3s;" onmouseover="this.style.background='rgba(0, 240, 255, 0.05)'; this.style.borderColor='var(--neon-cyan)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.04)'">
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fa-brands fa-linkedin" style="font-size: 1.2rem; color: #0077b5;"></i>
+                                    <span style="font-family: var(--font-mono); font-size: 0.9rem;">LINKEDIN://ronaldmugume</span>
+                                </span>
+                                <a href="https://www.linkedin.com/in/ronaldmugume" target="_blank" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-cyan); text-decoration: none; border: 1px solid var(--neon-cyan); padding: 4px 10px; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='var(--neon-cyan)'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='var(--neon-cyan)'">CONNECT_NODE</a>
+                            </div>
+                            <div class="network-route-item" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 8px; transition: all 0.3s;" onmouseover="this.style.background='rgba(0, 255, 65, 0.05)'; this.style.borderColor='var(--neon-green)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.02)'; this.style.borderColor='rgba(255, 255, 255, 0.04)'">
+                                <span style="display: flex; align-items: center; gap: 10px;">
+                                    <i class="fa-solid fa-envelope" style="font-size: 1.1rem; color: #ea4335;"></i>
+                                    <span style="font-family: var(--font-mono); font-size: 0.9rem;">SMTP://ronniemugs</span>
+                                </span>
+                                <a href="mailto:ronniemugs@gmail.com" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neon-green); text-decoration: none; border: 1px solid var(--neon-green); padding: 4px 10px; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#000'" onmouseout="this.style.background='transparent'; this.style.color='var(--neon-green)'">SEND_MAIL</a>
+                            </div>
+                        </div>
+                        <div class="network-diagram" style="flex: 0.8; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 1px dashed rgba(255, 255, 255, 0.08); padding-left: 20px; margin-left: 10px;">
+                            <svg viewBox="0 0 100 80" style="width: 100%; max-height: 120px;">
+                                <line x1="50" y1="40" x2="15" y2="15" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-dasharray="3,3" />
+                                <line x1="50" y1="40" x2="85" y2="25" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-dasharray="3,3" />
+                                <line x1="50" y1="40" x2="50" y2="70" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" stroke-dasharray="3,3" />
+                                
+                                <circle cx="50" cy="40" r="8" fill="rgba(255, 107, 0, 0.2)" stroke="var(--neon-orange)" stroke-width="1.5" />
+                                <text x="50" y="43" font-family="monospace" font-size="8" fill="#fff" text-anchor="middle" font-weight="bold">HUB</text>
+                                
+                                <circle cx="15" cy="15" r="5" fill="#333" stroke="#fff" stroke-width="1" />
+                                <circle cx="85" cy="25" r="5" fill="#333" stroke="var(--neon-cyan)" stroke-width="1" />
+                                <circle cx="50" cy="70" r="5" fill="#333" stroke="var(--neon-green)" stroke-width="1" />
+                            </svg>
+                            <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); margin-top: 5px; text-align: center; text-transform: uppercase;">Active Gateway Routing Topology</span>
+                        </div>
                     </div>
                 </div>
             </div>

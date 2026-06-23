@@ -18,12 +18,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Connect to Redis
+# Connect to Redis with connection pool stability settings
 REDIS_HOST = os.getenv("REDIS_HOST", "redis-service")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 
 try:
-    r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
+    r = redis.Redis(
+        host=REDIS_HOST,
+        port=REDIS_PORT,
+        db=0,
+        decode_responses=True,
+        socket_keepalive=True,
+        health_check_interval=30,
+        retry_on_timeout=True
+    )
 except Exception as e:
     print(f"Failed to connect to Redis: {e}")
 

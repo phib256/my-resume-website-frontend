@@ -7,15 +7,21 @@
     --neon-orange: #ff6b00;
     --text-main: #f3f3f3;
     --text-muted: #5e7264;
-    --font-sans: 'Outfit', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none; /* Hide default pointer to enable Custom CLI Cursor */
+}
+
+/* Enable Custom Cursor hide-rules on Desktop only */
+@media (min-width: 1025px) and (hover: hover) {
+    body, a, button, input, select, textarea, [role="button"] {
+        cursor: none;
+    }
 }
 
 html {
@@ -89,11 +95,11 @@ body {
     left: 0;
     width: 12px;
     height: 24px;
-    background-color: var(--neon-green);
+    background-color: rgba(57, 255, 20, 0.35); /* Translucent neon green */
+    border: 1px solid var(--neon-green);
     z-index: 99999;
     pointer-events: none;
     animation: blink 1s step-end infinite;
-    mix-blend-mode: difference;
     transform: translate(-50%, -50%);
     display: none;
 }
@@ -928,12 +934,9 @@ h1, h2, h3, h4 {
     }
 }
 
-/* Fallback for Touch Devices */
-@media (hover: none) {
+/* Hide cursor element on mobile/tablet */
+@media (max-width: 1024px) {
     .cursor-block {
         display: none !important;
-    }
-    * {
-        cursor: auto !important;
     }
 }

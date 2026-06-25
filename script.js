@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Terminal Block Cursor Tracking (Optimized with requestAnimationFrame and GPU translate3d)
     const cursor = document.querySelector('.cursor-block');
-    if (cursor && window.matchMedia('(hover: hover)').matches) {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 1024 || !window.matchMedia('(hover: hover)').matches;
+    
+    if (cursor && !isMobile) {
         let mouseX = 0;
         let mouseY = 0;
         let isPending = false;

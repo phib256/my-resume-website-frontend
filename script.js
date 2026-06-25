@@ -16,13 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
     
-    // 1. Terminal Block Cursor Tracking
+    // 1. Terminal Block Cursor Tracking (Optimized with requestAnimationFrame and GPU translate3d)
     const cursor = document.querySelector('.cursor-block');
     if (cursor && window.matchMedia('(hover: hover)').matches) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let isPending = false;
+
         window.addEventListener('mousemove', (e) => {
-            cursor.style.display = 'block';
-            cursor.style.left = `${e.clientX + 5}px`;
-            cursor.style.top = `${e.clientY + 5}px`;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            if (!isPending) {
+                isPending = true;
+                requestAnimationFrame(() => {
+                    cursor.style.display = 'block';
+                    cursor.style.transform = `translate3d(${mouseX + 5}px, ${mouseY + 5}px, 0) translate(-50%, -50%)`;
+                    isPending = false;
+                });
+            }
         });
         
         // Hide cursor when leaving window

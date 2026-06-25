@@ -56,6 +56,9 @@ body {
     pointer-events: none;
     opacity: 0.15;
     transition: all 1s ease-in-out;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 .orb-1 {
     top: -10%;
@@ -82,6 +85,8 @@ body {
 /* Custom CLI Cursor */
 .cursor-block {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 12px;
     height: 24px;
     background-color: var(--neon-green);

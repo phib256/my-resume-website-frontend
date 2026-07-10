@@ -5,14 +5,28 @@ protocol: http2
 ingress:
   - hostname: ssh.phib.net
     service: ssh://localhost:22
+  - hostname: launchpad.phib.net
+    service: http://localhost:5000
+  - hostname: uptime.phib.net
+    service: http://localhost:3001
+  - hostname: osticket.phib.net
+    service: http://localhost:30082
+  - hostname: erp.djamboree.net
+    service: http://localhost:30081
+    originRequest:
+      httpHostHeader: djamboree.local
+  - hostname: djamboree.phib.net
+    service: http://localhost:30081
+    originRequest:
+      httpHostHeader: djamboree.local
+  - hostname: bella.phib.net
+    service: http://localhost:30083
+  - hostname: registry.phib.net
+    service: http://localhost:30050
   - hostname: phib.net
     service: http://localhost:30080
   - hostname: portfolio.phib.net
     service: http://localhost:30080
-  - hostname: erpnext.phib.net
+  - hostname: "*.phib.net"
     service: http://localhost:30081
-    originRequest:
-      httpHostHeader: erp.local
-  - hostname: uptime.phib.net
-    service: http://localhost:3001
   - service: http_status:404

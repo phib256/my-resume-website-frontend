@@ -1,5 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // SEO: Dynamic Canonical Link Injection
+    (function() {
+        const baseUrl = 'https://phib.net';
+        let path = window.location.pathname;
+        if (path.length > 1 && path.endsWith('/')) {
+            path = path.slice(0, -1); // Strip trailing slash
+        }
+        const canonicalUrl = baseUrl + path; // Ignores search params and hash
+        
+        let link = document.querySelector("link[rel='canonical']");
+        if (!link) {
+            link = document.createElement("link");
+            link.rel = "canonical";
+            document.head.appendChild(link);
+        }
+        link.href = canonicalUrl;
+    })();
+    
     // 0. Visitor counter dynamic fetch from Backend API
     const visitorEl = document.getElementById('visitor-count-footer');
     if (visitorEl) {

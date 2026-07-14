@@ -86,7 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const href = btn.getAttribute('href');
-            const project = href.includes('uptime') ? 'uptime_kuma' : 'erpnext';
+            let project;
+            if (href.includes('uptime')) project = 'uptime_kuma';
+            else if (href.includes('launchpad')) project = 'launchpad';
+            else project = 'erpnext';
             openCliDemo(project, href);
         });
     });
@@ -127,6 +130,18 @@ const demoSequences = {
         { type: 'output', text: '[SYS_INFO] Simulating ping diagnostics from container namespace:' },
         { type: 'output', text: '  ping -c 3 10.10.30.10 (PBX 01)\n  64 bytes from 10.10.30.10: icmp_seq=1 ttl=64 time=1.84 ms\n  64 bytes from 10.10.30.10: icmp_seq=2 ttl=64 time=1.92 ms\n  3 packets transmitted, 3 received, 0% packet loss\n\n  ping -c 3 10.10.30.11 (PBX 02)\n  64 bytes from 10.10.30.11: icmp_seq=1 ttl=64 time=1.75 ms\n  64 bytes from 10.10.30.11: icmp_seq=2 ttl=64 time=1.81 ms\n  3 packets transmitted, 3 received, 0% packet loss' },
         { type: 'success', text: '\n[SUCCESS] Monitoring routes and PBX pings are fully operational! 🟢' }
+    ],
+    launchpad: [
+        { type: 'input', text: './init_saas_launchpad.sh --discover-services' },
+        { type: 'output', text: '[SYS_INFO] Bootstrapping Multi-Tenant SaaS Gateway...' },
+        { type: 'output', text: '[SYS_INFO] Scanning Kubernetes cluster for active B2B architectures...' },
+        { type: 'output', text: '  - Directus (Headless CMS) ...... [ READY ]' },
+        { type: 'output', text: '  - Vaultwarden (Zero-Trust) ..... [ READY ]' },
+        { type: 'output', text: '  - ERPNext (Enterprise ERP) ..... [ READY ]' },
+        { type: 'output', text: '  - osTicket (Support Desk) ...... [ READY ]' },
+        { type: 'output', text: '[SYS_INFO] Generating secure edge tunnels via Cloudflare... [ OK ]' },
+        { type: 'output', text: '[WARNING] Admin login required to provision new tenants.' },
+        { type: 'success', text: '\n[SUCCESS] Gateway is active. Want your own private SaaS deployment? Let\'s talk.' }
     ]
 };
 
@@ -150,8 +165,24 @@ function openCliDemo(project, liveUrl) {
             // Append final redirection link
             const redirectLine = document.createElement('div');
             redirectLine.className = 'modal-line modal-success';
-            redirectLine.innerHTML = `\n[REDIRECT] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_OPEN_LIVE_DEMO</a>`;
+            
+            if (project === 'launchpad') {
+                redirectLine.innerHTML = `\n[ACTION] <a href="mailto:ronniemugs@gmail.com?subject=SaaS%20Deployment%20Inquiry" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_REQUEST_CUSTOM_SAAS</a>\n<br>[PORTAL] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline; font-size: 0.85em; opacity: 0.8;">OPEN_ADMIN_GATEWAY</a>`;
+            } else {
+                redirectLine.innerHTML = `\n[REDIRECT] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_OPEN_LIVE_DEMO</a>`;
+            }
             termBody.appendChild(redirectLine);
+            
+            // Append Return to Site button
+            const returnBtn = document.createElement('button');
+            returnBtn.className = 'cli-btn primary';
+            returnBtn.style.cssText = 'margin-top: 20px; width: 100%; border: 1px solid var(--neon-green); color: var(--neon-green); background: rgba(0,255,102,0.05); padding: 10px; cursor: pointer; font-family: var(--font-mono); font-size: 0.9rem; transition: all 0.3s;';
+            returnBtn.innerText = '[ CLOSE & RETURN TO PORTFOLIO ]';
+            returnBtn.onmouseover = () => { returnBtn.style.background = 'var(--neon-green)'; returnBtn.style.color = '#000'; };
+            returnBtn.onmouseout = () => { returnBtn.style.background = 'rgba(0,255,102,0.05)'; returnBtn.style.color = 'var(--neon-green)'; };
+            returnBtn.onclick = closeDemoModal;
+            termBody.appendChild(returnBtn);
+            
             termBody.scrollTop = termBody.scrollHeight;
             return;
         }

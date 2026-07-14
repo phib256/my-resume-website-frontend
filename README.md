@@ -1,38 +1,42 @@
-# Mugume Ronald's Portfolio Website
+<div align="center">
+  <h1>🚀 phib.net Core Infrastructure</h1>
+  <p><strong>Enterprise Cloud Architecture & B2B Managed SaaS Portal</strong></p>
+  <p><i>Declarative Kubernetes manifests, High-Availability Ingress, and Interactive Terminal Simulations.</i></p>
+</div>
 
-This repository contains the source code for my personal portfolio website.
+---
 
-## Project Structure
+## ⚡ Overview
+This repository contains the source code, infrastructure blueprints, and container configurations for **[phib.net](https://phib.net)**. 
 
-The project is structured as follows:
+Far beyond a standard static site, this platform acts as an automated **B2B SaaS Sales Funnel**. It leverages dynamic, interactive terminal simulations of live infrastructure deployments (ERPNext, Directus, Vaultwarden, Uptime Kuma) and securely routes enterprise leads directly into a Managed SaaS pipeline.
 
-- **index.html:** The main HTML file for the website.
-- **style.css:** The main CSS file for styling the website.
-- **mediaqueries.css:** CSS file for responsive design.
-- **script.js:** JavaScript file for handling interactions and animations.
-- **assets:** Folder containing images, icons, and other assets used in the website.
+## 🛠️ Tech Stack & Architecture
+- **Frontend Engine:** Matrix-themed, ultra-lightweight Vanilla JS with GPU-accelerated micro-animations.
+- **Containerization:** Multi-stage Docker builds orchestrating highly optimized `nginx:alpine` images.
+- **Orchestration:** Deployed dynamically on a resilient, bare-metal local Kubernetes cluster.
+- **Edge Networking:** Securely tunneled to the public internet via **Cloudflare Zero-Trust Tunnels** bypassing NAT limitations.
+- **CI/CD:** Fully automated GitHub Actions pipeline (builds, lints, and pushes to Docker Hub on every commit).
 
-## Features
+## 🚀 Key Features
+- **Live Terminal Simulations:** Custom JS engine simulating real-time CLI diagnostics for Kubernetes namespaces.
+- **Multi-Tenant Gateway Integration:** Interfaces with the backend Flask API (`saas-launchpad`) for provisioning client tenants.
+- **Hardened Security:** Strictly enforced CORS, Cloudflare WAF rules, and NGINX security headers.
+- **Real-Time Telemetry:** Backend API integration for live Redis-backed visitor counters.
 
-- **Responsive Design:** The website is designed to be responsive and adapt to different screen sizes.
-- **Navigation:** The website includes a navigation menu for easy access to different sections.
-- **About Me:** A section showcasing my background, skills, and experience.
-- **Experience:** A section highlighting my key skills and experience in cloud engineering.
-- **Projects:** A section showcasing my recent projects and their links to GitHub repositories.
-- **Contact:** A section providing my contact information for potential employers or collaborators.
+## ⚙️ Kubernetes Deployment
+The platform is designed to be immutable and instantly scalable. 
+```bash
+# 1. Build the lightweight NGINX container
+docker build -t phib256/portfolio-website:latest .
 
-## Getting Started
+# 2. Deploy declarative configuration to the local K8s cluster
+kubectl apply -f k8s-manifests.yaml
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/phib256/portfolio-website.git
-2. **Open the index.html file in your web browser.**
-Technologies Used
-HTML
-CSS
-JavaScript
-Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+# 3. Force Zero-Downtime Rollout
+kubectl rollout restart deployment/portfolio-website
+```
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+## 🔒 License & Usage
+This is the proprietary infrastructure code for [phib.net](https://phib.net). 
+For business inquiries, SaaS hosting, or Enterprise Cloud Consulting, please initiate a handshake via the portal or reach out on LinkedIn.

@@ -179,9 +179,9 @@ function openCliDemo(project, liveUrl) {
             redirectLine.className = 'modal-line modal-success';
             
             if (project === 'managed_saas') {
-                redirectLine.innerHTML = `\n[ACTION] <a href="mailto:ronniemugs@gmail.com?subject=Managed%20SaaS%20Hosting%20Inquiry" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_REQUEST_HOSTING</a>`;
+                redirectLine.innerHTML = `\n[ACTION] <a href="https://www.linkedin.com/in/ronaldmugume" target="_blank" class="neon-link" style="text-decoration:underline;">MESSAGE_ME_ON_LINKEDIN</a>\n<br>[EMAIL] <span class="neon-link" style="text-decoration:underline; cursor:pointer;" onclick="navigator.clipboard.writeText('ronniemugs@gmail.com'); this.innerText='COPIED_TO_CLIPBOARD!';">COPY_EMAIL_ADDRESS</span>`;
             } else if (project === 'launchpad') {
-                redirectLine.innerHTML = `\n[ACTION] <a href="mailto:ronniemugs@gmail.com?subject=SaaS%20Deployment%20Inquiry" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_REQUEST_CUSTOM_SAAS</a>\n<br>[PORTAL] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline; font-size: 0.85em; opacity: 0.8;">OPEN_ADMIN_GATEWAY</a>`;
+                redirectLine.innerHTML = `\n[ACTION] <a href="https://www.linkedin.com/in/ronaldmugume" target="_blank" class="neon-link" style="text-decoration:underline;">MESSAGE_ME_ON_LINKEDIN</a>\n<br>[EMAIL] <span class="neon-link" style="text-decoration:underline; cursor:pointer;" onclick="navigator.clipboard.writeText('ronniemugs@gmail.com'); this.innerText='COPIED_TO_CLIPBOARD!';">COPY_EMAIL_ADDRESS</span>\n<br><br>[PORTAL] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline; font-size: 0.85em; opacity: 0.8;">OPEN_ADMIN_GATEWAY</a>`;
             } else {
                 redirectLine.innerHTML = `\n[REDIRECT] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_OPEN_LIVE_DEMO</a>`;
             }

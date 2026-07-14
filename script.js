@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let project;
             if (href.includes('uptime')) project = 'uptime_kuma';
             else if (href.includes('launchpad')) project = 'launchpad';
+            else if (href.includes('#contact')) project = 'managed_saas';
             else project = 'erpnext';
             openCliDemo(project, href);
         });
@@ -142,6 +143,17 @@ const demoSequences = {
         { type: 'output', text: '[SYS_INFO] Generating secure edge tunnels via Cloudflare... [ OK ]' },
         { type: 'output', text: '[WARNING] Admin login required to provision new tenants.' },
         { type: 'success', text: '\n[SUCCESS] Gateway is active. Want your own private SaaS deployment? Let\'s talk.' }
+    ],
+    managed_saas: [
+        { type: 'input', text: './provision_new_client_tenant.sh --plan=enterprise' },
+        { type: 'output', text: '[SYS_INFO] Initializing High-Density SaaS Provisioning...' },
+        { type: 'output', text: '[SYS_INFO] Allocating isolated Kubernetes namespaces... [ OK ]' },
+        { type: 'output', text: '[SYS_INFO] Deploying requested services:' },
+        { type: 'output', text: '  - Directus (Content DB) ........ [ PROVISIONED ]' },
+        { type: 'output', text: '  - Vaultwarden (Password Mgr) ... [ PROVISIONED ]' },
+        { type: 'output', text: '  - Umami (Analytics) ............ [ PROVISIONED ]' },
+        { type: 'output', text: '[SYS_INFO] Configuring Zero-Trust network policies and daily backups... [ OK ]' },
+        { type: 'success', text: '\n[SUCCESS] Infrastructure ready. Want your own managed SaaS stack? Let\'s talk.' }
     ]
 };
 
@@ -166,7 +178,9 @@ function openCliDemo(project, liveUrl) {
             const redirectLine = document.createElement('div');
             redirectLine.className = 'modal-line modal-success';
             
-            if (project === 'launchpad') {
+            if (project === 'managed_saas') {
+                redirectLine.innerHTML = `\n[ACTION] <a href="mailto:ronniemugs@gmail.com?subject=Managed%20SaaS%20Hosting%20Inquiry" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_REQUEST_HOSTING</a>`;
+            } else if (project === 'launchpad') {
                 redirectLine.innerHTML = `\n[ACTION] <a href="mailto:ronniemugs@gmail.com?subject=SaaS%20Deployment%20Inquiry" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_REQUEST_CUSTOM_SAAS</a>\n<br>[PORTAL] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline; font-size: 0.85em; opacity: 0.8;">OPEN_ADMIN_GATEWAY</a>`;
             } else {
                 redirectLine.innerHTML = `\n[REDIRECT] <a href="${liveUrl}" target="_blank" class="neon-link" style="text-decoration:underline;">CLICK_HERE_TO_OPEN_LIVE_DEMO</a>`;

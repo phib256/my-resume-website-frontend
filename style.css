@@ -1,12 +1,12 @@
 :root {
-    --bg: #040404;
-    --card-bg: rgba(10, 10, 10, 0.6);
-    --card-border: rgba(255, 255, 255, 0.08);
-    --neon-green: #39ff14;
-    --neon-cyan: #00f6ff;
+    --bg: #0F172A;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --neon-green: #0ea5e9;
+    --neon-cyan: #38bdf8;
     --neon-orange: #ff6b00;
-    --text-main: #f3f3f3;
-    --text-muted: #5e7264;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }

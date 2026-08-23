@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Button links
     document.getElementById('download-cv-btn')?.addEventListener('click', () => {
-        window.open('./assets/resume.pdf');
+        window.open('./assets/resume.pdf?v=' + new Date().getTime());
     });
 
     document.getElementById('contact-info-btn')?.addEventListener('click', () => {

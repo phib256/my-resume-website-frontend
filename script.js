@@ -298,7 +298,84 @@ function loadLocalBadges() {
         })
         .catch(err => {
             console.error('[SYS_ERROR] Failed to load certs.log:', err);
+        
+    // =========================================================================
+    // Interactive Failover Simulator Logic
+    // =========================================================================
+    (function initFailoverSimulator() {
+        const btnCut = document.getElementById('btn-cut-fiber');
+        const btnReset = document.getElementById('btn-reset-sim');
+        const branch1 = document.getElementById('branch-wan1');
+        const branch2 = document.getElementById('branch-wan2');
+        const wan1State = document.getElementById('wan1-state');
+        const wan2State = document.getElementById('wan2-state');
+        const metricUplink = document.getElementById('metric-uplink');
+        const metricLoss = document.getElementById('metric-loss');
+        const metricTime = document.getElementById('metric-time');
+        const feed = document.getElementById('sim-event-feed');
+
+        if (!btnCut) return;
+
+        function addLog(text, isAlert = false, isSuccess = false) {
+            const time = new Date().toLocaleTimeString();
+            const div = document.createElement('div');
+            div.className = 'feed-entry' + (isAlert ? ' alert' : '') + (isSuccess ? ' success' : '');
+            div.textContent = `[${time}] ${text}`;
+            feed.appendChild(div);
+            feed.scrollTop = feed.scrollHeight;
+        }
+
+        btnCut.addEventListener('click', () => {
+            btnCut.disabled = true;
+            btnCut.style.opacity = '0.5';
+            addLog('ALERT: Injected fiber loss simulation on Primary WAN', true);
+            metricLoss.textContent = '87.4% (Degraded)';
+            metricLoss.style.color = 'var(--neon-orange)';
+            wan1State.textContent = 'LINK DEGRADED';
+            wan1State.className = 'node-state-pill alert';
+
+            setTimeout(() => {
+                addLog('WATCHDOG: 3 consecutive ICMP probe timeouts detected on gateway', true);
+            }, 1000);
+
+            setTimeout(() => {
+                addLog('KERNEL: Modifying policy routing table weights (table 100 -> table 200)');
+                branch1.classList.remove('active');
+                branch2.classList.add('active');
+                wan1State.textContent = 'OFFLINE';
+                wan2State.textContent = 'ROUTE: ACTIVE (FAILOVER)';
+                wan2State.className = 'node-state-pill success';
+                metricUplink.textContent = 'Backup SD-WAN';
+                metricUplink.style.color = 'var(--neon-green)';
+                metricLoss.textContent = '0.0% (Recovered)';
+                metricLoss.style.color = 'var(--neon-green)';
+                metricTime.textContent = '11.4s (Sub-15s SLA)';
+                metricTime.style.color = 'var(--neon-green)';
+                addLog('SUCCESS: Traffic re-routed to Backup SD-WAN. 0 TCP sessions dropped.', false, true);
+                btnReset.style.display = 'inline-flex';
+            }, 2400);
         });
+
+        btnReset.addEventListener('click', () => {
+            branch2.classList.remove('active');
+            branch1.classList.add('active');
+            wan1State.textContent = 'ROUTE: ACTIVE';
+            wan1State.className = 'node-state-pill';
+            wan2State.textContent = 'ROUTE: STANDBY';
+            wan2State.className = 'node-state-pill';
+            metricUplink.textContent = 'Primary Fiber';
+            metricUplink.style.color = '';
+            metricLoss.textContent = '0.0%';
+            metricLoss.style.color = '';
+            metricTime.textContent = '--';
+            metricTime.style.color = '';
+            btnCut.disabled = false;
+            btnCut.style.opacity = '1';
+            btnReset.style.display = 'none';
+            addLog('RESTORE: Primary fiber recovered. Reverting routing weights to metric 50.', false, true);
+        });
+    })();
+});
 }
 
 

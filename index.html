@@ -52,7 +52,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="style.css?v=15.0">
+    <link rel="stylesheet" href="style.css?v=16.0">
     <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" />
 </head>
 <body>
@@ -83,41 +83,87 @@
     <main class="page-container">
         
         <!-- HERO / PROFILE SECTION -->
-        <section id="hero" class="hero-section">
-            <div class="hero-text-content">
-                <h1 class="gradient-text">BARE-METAL KUBERNETES & <br>RESILIENT CLOUD PLATFORMS.</h1>
-                <p class="hero-subtitle">>> PRINCIPAL INFRASTRUCTURE ARCHITECT & SRE | FOUNDER, AEROPHIB TECHNOLOGIES LTD</p>
-                <p class="hero-lead-paragraph">
-                    Engineering zero-downtime private cloud platforms, bare-metal Kubernetes architectures with Calico BGP mesh networking, and Linux kernel observability (eBPF). Delivering enterprise multi-tenant systems, autonomous high-availability SD-WAN routing, and SLA-backed cloud infrastructure.
-                </p>
-                <div class="hero-btn-group">
-                    <button class="cli-btn primary" id="contact-info-btn">INITIATE_HANDSHAKE</button>
-                    <button class="cli-btn" id="download-cv-btn">DOWNLOAD_EXECUTIVE_CV.pdf</button>
-                </div>
-                <div class="hero-socials">
-                    <i class="fa-brands fa-linkedin icon" data-href="https://www.linkedin.com/in/ronaldmugume"></i>
-                    <i class="fa-brands fa-github icon" data-href="https://www.github.com/phib256"></i>
-                </div>
+                <!-- APPLE-STYLE HERO SECTION -->
+        <section id="hero" class="apple-hero-container">
+            <span class="apple-kicker">Systems Architecture · High-Availability SRE</span>
+            <h1 class="apple-hero-title">Engineering resilience.<br><span style="color: var(--neon-cyan);">At the kernel level.</span></h1>
+            <p class="apple-hero-sub">
+                Principal Infrastructure Architect &amp; Senior SRE specializing in bare-metal Kubernetes (Calico BGP), sub-15-second autonomous multi-ISP failovers, and low-overhead Linux kernel observability (eBPF). Backed by GCP ACE and CNCF KCNA credentials.
+            </p>
+            <div class="apple-hero-actions">
+                <a href="#demos" class="apple-btn-primary">Try Interactive Demos</a>
+                <a href="#experience" class="apple-btn-secondary">Production Systems</a>
+                <a href="#about" class="apple-btn-secondary">Executive Bio</a>
             </div>
-            
-            <!-- Sleek Interactive Console Box -->
-            <div class="hero-console-container">
-                <div class="console-header">
-                    <div class="console-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+        </section>
+
+        <!-- INTERACTIVE LIVE ARCHITECTURE DEMO -->
+        <section id="demos" class="apple-demo-section glass-card">
+            <div class="apple-section-header">
+                <span class="apple-pill-tag">Interactive Architecture Simulator</span>
+                <h2 class="apple-section-title">Autonomous Dual-WAN Failover</h2>
+                <p class="apple-section-subtitle">
+                    Experience how Linux policy routing and automated watchdog probing preserve 99.99% uptime during fiber degradation—anonymized to protect internal cluster topology.
+                </p>
+            </div>
+
+            <div class="simulator-container">
+                <!-- Circuit visualizer -->
+                <div class="circuit-canvas">
+                    <div class="circuit-node">
+                        <span style="display:flex; align-items:center;"><i class="fa-solid fa-users" style="color: #60a5fa;"></i> Ingress Traffic</span>
+                        <div class="node-state-pill" id="client-state">CLIENT CONNECTED</div>
                     </div>
-                    <span class="console-title">ronald@cloud-engine: ~</span>
+                    <div class="circuit-node">
+                        <span style="display:flex; align-items:center;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-cyan);"></i> Edge Gateway</span>
+                        <div class="node-state-pill">ZERO-TRUST INGRESS</div>
+                    </div>
+                    <div class="fork-branch active" id="branch-wan1" style="margin-top: 0.5rem;">
+                        <div class="circuit-node">
+                            <span style="display:flex; align-items:center;"><i class="fa-solid fa-bolt" style="color: var(--neon-green);"></i> Primary Fiber (Metric 50)</span>
+                            <div class="node-state-pill" id="wan1-state">ROUTE: ACTIVE</div>
+                        </div>
+                    </div>
+                    <div class="fork-branch" id="branch-wan2" style="margin-top: 0.5rem;">
+                        <div class="circuit-node">
+                            <span style="display:flex; align-items:center;"><i class="fa-solid fa-tower-broadcast" style="color: var(--neon-orange);"></i> Backup SD-WAN (Metric 200)</span>
+                            <div class="node-state-pill" id="wan2-state">ROUTE: STANDBY</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="console-body">
-                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> cluster-telemetry --verify-mesh</div>
-                    <div class="console-output">
-                        <span class="sys-success">[ OK ] Calico BGP Mesh: Active (node1-node3 peered, <1ms RTT)</span>
-                        <span class="sys-success">[ OK ] Dual-WAN Watchdog: Uplink Healthy (packet loss: 0.0%, SLA: 99.99%)</span>
-                        <span class="sys-success">[ OK ] Kernel Observability: eBPF socket tracing probes attached</span>
-                        <span class="sys-success">[ OK ] Edge Ingress: Cloudflare Zero-Trust (0 open public ports)</span>
-                        <span class="sys-info">ROLES: Cloud Infrastructure · Bare-Metal Kubernetes · Senior SRE</span>
+
+                <!-- Simulation Dashboard -->
+                <div class="simulator-dashboard">
+                    <div class="sim-controls">
+                        <button class="apple-btn-trigger" id="btn-cut-fiber">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Simulate Fiber Drop</span>
+                        </button>
+                        <button class="apple-btn-reset" id="btn-reset-sim" style="display: none;">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Restore Primary Fiber</span>
+                        </button>
+                    </div>
+                    <div class="sim-metrics">
+                        <div class="metric-item">
+                            <span class="m-label">Active Uplink:</span>
+                            <span class="m-val" id="metric-uplink">Primary Fiber</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-label">Packet Loss:</span>
+                            <span class="m-val" id="metric-loss">0.0%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-label">TCP Sessions:</span>
+                            <span class="m-val" id="metric-sessions">100% Retained</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="m-label">Failover Time:</span>
+                            <span class="m-val" id="metric-time">--</span>
+                        </div>
+                    </div>
+                    <div class="sim-event-feed" id="sim-event-feed">
+                        <div class="feed-entry">[WATCHDOG IDLE] Probing primary gateway (0% loss, SLA: 99.99%)</div>
                     </div>
                 </div>
             </div>
@@ -439,6 +485,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=17.0"></script>
+    <script src="script.js?v=18.0"></script>
 </body>
 </html>

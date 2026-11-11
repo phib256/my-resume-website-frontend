@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mugume Ronald (phib256) | Enterprise Cloud Architect & Systems Engineer</title>
+    <title>Mugume Ronald (phib256) | Principal Systems Architect & Senior SRE</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg?v=3">
     
     <!-- SEO & Metadata -->
@@ -85,10 +85,10 @@
         <!-- HERO / PROFILE SECTION -->
         <section id="hero" class="hero-section">
             <div class="hero-text-content">
-                <h1 class="gradient-text">ENGINEERING <br>UNBREAKABLE CLOUD ARCHITECTURE.</h1>
-                <p class="hero-subtitle">>> LEAD KUBERNETES ARCHITECT & FOUNDER, AEROPHIB TECHNOLOGIES LTD</p>
+                <h1 class="gradient-text">BARE-METAL KUBERNETES & <br>RESILIENT CLOUD PLATFORMS.</h1>
+                <p class="hero-subtitle">>> PRINCIPAL INFRASTRUCTURE ARCHITECT & SRE | FOUNDER, AEROPHIB TECHNOLOGIES LTD</p>
                 <p class="hero-lead-paragraph">
-                    I architect, automate, and scale resilient enterprise cloud environments. Through Aerophib Technologies, I deliver high-density, multi-tenant infrastructure—leveraging GitOps, Bare-Metal Kubernetes, and advanced observability to turn complex IT bottlenecks into your ultimate competitive advantage.
+                    Engineering zero-downtime private cloud platforms, bare-metal Kubernetes architectures with Calico BGP mesh networking, and Linux kernel observability (eBPF). Delivering enterprise multi-tenant systems, autonomous high-availability SD-WAN routing, and SLA-backed cloud infrastructure.
                 </p>
                 <div class="hero-btn-group">
                     <button class="cli-btn primary" id="contact-info-btn">INITIATE_HANDSHAKE</button>
@@ -111,13 +111,13 @@
                     <span class="console-title">ronald@cloud-engine: ~</span>
                 </div>
                 <div class="console-body">
-                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> ./execute_profile.sh</div>
+                    <div class="cli-prompt"><span>ronald@cloud-engine:~$</span> cluster-telemetry --verify-mesh</div>
                     <div class="console-output">
-                        <span class="sys-success">[ OK ] Kernel hooks initialized.</span>
-                        <span class="sys-info">SYSTEM DEPLOYMENT: GCP / AWS / AZURE</span>
-                        <span class="sys-info">K8S FLAVORS: GKE / EKS / BARE-METAL</span>
-                        <span class="sys-info">INFRASTRUCTURE STATUS: IMMUTABLE & VERIFIED</span>
-                        <span class="sys-success">[ SUCCESS ] Shell context bound to production cluster.</span>
+                        <span class="sys-success">[ OK ] Calico BGP Mesh: Active (node1-node3 peered, <1ms RTT)</span>
+                        <span class="sys-success">[ OK ] Dual-WAN Watchdog: Uplink Healthy (packet loss: 0.0%, SLA: 99.99%)</span>
+                        <span class="sys-success">[ OK ] Kernel Observability: eBPF socket tracing probes attached</span>
+                        <span class="sys-success">[ OK ] Edge Ingress: Cloudflare Zero-Trust (0 open public ports)</span>
+                        <span class="sys-info">ROLES: Cloud Infrastructure · Bare-Metal Kubernetes · Senior SRE</span>
                     </div>
                 </div>
             </div>
@@ -252,15 +252,15 @@
             <div class="sys-data-block">
                 <h3 class="cli-prompt"><span>ronald@cloud-engine:~$</span> cat executive_bio.md</h3>
                 <p class="aggressive-copy">
-                    I am the Founder and Lead Architect of Aerophib Technologies Ltd, an elite cloud consulting agency dedicated to bringing enterprise-grade, cloud-native solutions to modern businesses. I don't just deploy servers; I engineer the digital backbone of scaling organizations. In the cloud, downtime is lost revenue—and I build fault-tolerant systems that protect the bottom line.
+                    I am the Founder and Principal Systems Architect of Aerophib Technologies Ltd. I engineer high-density, fault-tolerant bare-metal Kubernetes platforms, zero-trust network perimeters, and automated cloud delivery pipelines. Where downtime equals lost revenue, I build resilient distributed infrastructure backed by verified 99.99% operational uptime SLAs.
                 </p>
                 <br>
                 <p class="aggressive-copy">
-                    Backed by a BSc in Information Technology and validated by industry-standard credentials—including the Google Cloud Associate Cloud Engineer (ACE) and Kubernetes & Cloud Native Associate (KCNA) certifications—I specialize in architecting high-density bare-metal Kubernetes infrastructure. I have successfully engineered bespoke multi-tenant gateways and resolved complex volume-affinity scheduling bottlenecks to ensure stateful workloads perform at peak efficiency.
+                    Backed by a BSc in Information Technology and validated by industry-standard credentials—including Google Cloud Associate Cloud Engineer (ACE) and CNCF/Linux Foundation Kubernetes & Cloud Native Associate (KCNA) certifications—I specialize in bare-metal Kubernetes orchestration. My production experience spans native Calico BGP peering, volume-affinity resolution for stateful workloads (ERPNext, databases), and kernel-level observability with eBPF.
                 </p>
                 <br>
                 <p class="aggressive-copy">
-                    My expertise bridges the gap between raw code and business impact. From engineering highly available environments that guarantee uptime, to implementing zero-trust security paradigms with robust identity access management, I replace fragile legacy setups with immutable GitOps pipelines. Whether maximizing ROI through aggressive cost-optimization or ensuring complete infrastructure observability, I deliver cloud solutions that enterprises can confidently bet their operations on.
+                    Bridging deep Linux systems engineering with enterprise business impact, I design autonomous SD-WAN multi-ISP failovers with sub-15s recovery and replace brittle legacy setups with immutable GitOps pipelines. Actively targeting Senior Cloud Engineering, Kubernetes Platform, and Principal SRE roles—alongside enterprise B2B contracting through Aerophib Technologies.
                 </p>
                 
                 <div class="sys-badges-container">
@@ -279,77 +279,103 @@
                 <p class="section-tagline">Moving your business from fragile legacy systems to immutable, highly-available cloud infrastructure.</p>
             </div>
             
-            <div class="projects-grid">
-                <!-- Card 1: Cloud-Native Foundation -->
+                        <div class="projects-grid">
+                <!-- Card 1: Bare-Metal Kubernetes Platform -->
                 <div class="project-card glass-card glow-green">
                     <div class="card-image-wrapper">
-                        <img src="./assets/project-4.jpg" alt="Cloud-Native Foundation" class="card-img">
+                        <img src="./assets/project-4.jpg" alt="Bare-Metal Kubernetes Platform" class="card-img">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-body">
-                        <span class="folder-tag">drwxr-xr-x package_01</span>
-                        <h3>The Cloud-Native Foundation</h3>
+                        <span class="folder-tag">sys://k8s-platform</span>
+                        <h3>Bare-Metal Kubernetes Platform</h3>
                         <p class="card-desc">
-                            <strong>Business Outcome:</strong> Accelerate your time-to-market with a rock-solid, secure Kubernetes environment built for day-one scalability. Stop worrying about server crashes and focus on shipping features.<br><br>
-                            <strong>Architectural Edge:</strong> GitOps-driven deployment pipelines, automated horizontal scaling, and immutable infrastructure frameworks that eliminate configuration drift.
+                            <strong>Production Scope:</strong> 3-node bare-metal cluster with native Calico BGP mesh networking, containerd, and etcd cluster state. Built for sub-millisecond pod-to-pod interconnectivity without VXLAN overlay tax.<br><br>
+                            <strong>Engineering Edge:</strong> Self-hosted GitHub Actions runners for continuous GitOps synchronization, automated volume-affinity scheduling for stateful workloads, and zero open public ports via Cloudflare Zero-Trust edge ingress.
                         </p>
                         <div class="tags">
-                            <span class="tag">GITOPS</span>
+                            <span class="tag">BARE-METAL</span>
+                            <span class="tag">CALICO BGP</span>
                             <span class="tag">K8S</span>
-                            <span class="tag">SCALABILITY</span>
+                            <span class="tag">GITOPS</span>
                         </div>
                         <div class="btn-group">
-                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">INITIATE_SERVICE</a>
+                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">ENGAGE_ARCHITECTURE</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2: Enterprise Zero-Trust Stack -->
+                <!-- Card 2: Autonomous Dual-WAN Watchdog -->
                 <div class="project-card glass-card glow-cyan">
                     <div class="card-image-wrapper">
-                        <img src="./assets/project-5.jpg" alt="Enterprise Zero-Trust" class="card-img">
+                        <img src="./assets/project-5.jpg" alt="Autonomous SD-WAN" class="card-img">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-body">
-                        <span class="folder-tag">drwxr-xr-x package_02</span>
-                        <h3>The Enterprise Zero-Trust Stack</h3>
+                        <span class="folder-tag">net://sdwan-watchdog</span>
+                        <h3>Autonomous Dual-WAN SD-WAN</h3>
                         <p class="card-desc">
-                            <strong>Business Outcome:</strong> Achieve military-grade security and complete system visibility, drastically reducing audit times and protecting intellectual property without the exorbitant licensing fees.<br><br>
-                            <strong>Architectural Edge:</strong> Seamless SSO across all internal applications via Authelia, centralized audit logging, and deep, real-time telemetry utilizing the Prometheus, Grafana, and Loki stack.
+                            <strong>Production Scope:</strong> High-availability multi-ISP failover combining MikroTik edge hardware with Linux kernel policy routing (iproute2 split tables). Continuously monitors uplink packet loss and latency.<br><br>
+                            <strong>Engineering Edge:</strong> Sub-15-second autonomous route switching with zero dropped TCP sessions. Automatically synchronizes network telemetry alarms to Prometheus and Grafana dashboards with 99.99% uptime.
                         </p>
                         <div class="tags">
-                            <span class="tag">ZERO-TRUST</span>
-                            <span class="tag">AUTHELIA</span>
-                            <span class="tag">PROMETHEUS</span>
-                            <span class="tag">LOKI</span>
+                            <span class="tag">SD-WAN</span>
+                            <span class="tag">POLICY ROUTING</span>
+                            <span class="tag">BGP</span>
+                            <span class="tag">HIGH-AVAILABILITY</span>
                         </div>
                         <div class="btn-group">
-                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">INITIATE_SERVICE</a>
+                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">ENGAGE_ARCHITECTURE</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 3: Managed ERPNext -->
+                <!-- Card 3: Kernel-Level Observability (eBPF) -->
                 <div class="project-card glass-card glow-orange">
                     <div class="card-image-wrapper">
-                        <img src="./assets/project-4.jpg" alt="Managed ERPNext" class="card-img" style="filter: hue-rotate(270deg);">
+                        <img src="./assets/project-4.jpg" alt="eBPF Observability" class="card-img" style="filter: hue-rotate(270deg);">
                         <div class="card-overlay"></div>
                     </div>
                     <div class="card-body">
-                        <span class="folder-tag">drwxr-xr-x package_03</span>
-                        <h3>Managed ERPNext on Kubernetes</h3>
+                        <span class="folder-tag">sre://ebpf-telemetry</span>
+                        <h3>Kernel-Level Observability (eBPF)</h3>
                         <p class="card-desc">
-                            <strong>Business Outcome:</strong> A turnkey, high-performance ERP system leveraging strict multi-tenant isolation. Eliminate internal IT management overhead and ensure your business operations never skip a beat.<br><br>
-                            <strong>Architectural Edge:</strong> Fully managed, highly-available ERPNext clusters featuring automated disaster recovery, custom volume-affinity scheduling for stateful data integrity, and integrated enterprise SSO.
+                            <strong>Production Scope:</strong> Custom eBPF tracing probes attached directly to Linux kernel socket and syscall hooks. Eliminates the 15-20% CPU overhead typical of user-space monitoring daemons.<br><br>
+                            <strong>Engineering Edge:</strong> Captures transient network micro-drops, socket latency anomalies, and system calls in real time before traditional Prometheus scrapers can alert.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">eBPF</span>
+                            <span class="tag">LINUX KERNEL</span>
+                            <span class="tag">SRE</span>
+                            <span class="tag">OBSERVABILITY</span>
+                        </div>
+                        <div class="btn-group">
+                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">ENGAGE_ARCHITECTURE</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Managed ERPNext & SaaS Gateway -->
+                <div class="project-card glass-card glow-green">
+                    <div class="card-image-wrapper">
+                        <img src="./assets/project-1.png" alt="Enterprise ERPNext" class="card-img">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-body">
+                        <span class="folder-tag">saas://erpnext-orchestration</span>
+                        <h3>Managed ERPNext & SaaS Gateway</h3>
+                        <p class="card-desc">
+                            <strong>Production Scope:</strong> High-density multi-tenant SaaS gateway orchestrating isolated client instances, relational databases (MariaDB), and automated persistent storage backups via Velero.<br><br>
+                            <strong>Engineering Edge:</strong> Custom Python orchestration engine for automated tenant provisioning, schema migration safeguards with instant rollbacks, and zero-trust authentication via Authelia.
                         </p>
                         <div class="tags">
                             <span class="tag">ERPNEXT</span>
                             <span class="tag">MULTI-TENANT</span>
-                            <span class="tag">STORAGE</span>
-                            <span class="tag">SRE</span>
+                            <span class="tag">PYTHON</span>
+                            <span class="tag">ZERO-TRUST</span>
                         </div>
                         <div class="btn-group">
-                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">INITIATE_SERVICE</a>
+                            <a href="#contact" class="cli-btn primary" style="width: 100%; text-align: center; justify-content: center;">ENGAGE_ARCHITECTURE</a>
                         </div>
                     </div>
                 </div>

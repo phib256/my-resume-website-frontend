@@ -18,19 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
         link.href = canonicalUrl;
     })();
     
-    // 0. Visitor counter dynamic fetch from Backend API
+    // 0. Visitor counter dynamic fetch (session-cached to prevent refresh bloat)
     const visitorEl = document.getElementById('visitor-count-footer');
     if (visitorEl) {
-        fetch('/api/visit')
+        const hasVisited = sessionStorage.getItem('phib_visited_session');
+        const visitEndpoint = hasVisited ? '/api/visit/count' : '/api/visit';
+        
+        fetch(visitEndpoint)
             .then(res => res.json())
             .then(data => {
-                if (data && data.count) {
+                if (data && data.count !== undefined) {
+                    if (!hasVisited && data.count !== 'ERR') {
+                        sessionStorage.setItem('phib_visited_session', 'true');
+                    }
                     visitorEl.textContent = `[ VISITS: ${data.count} ]`;
                 }
             })
-            .catch(err => {
-                console.error('[SYS_ERROR] Failed to connect to Redis/API:', err);
-                visitorEl.textContent = `[ VISITS: ERR_CONN ]`;
+            .catch(() => {
+                // Graceful fallback to read-only count
+                fetch('/api/visit/count')
+                    .then(res => res.json())
+                    .then(d => { if (d && d.count) visitorEl.textContent = `[ VISITS: ${d.count} ]`; })
+                    .catch(() => { visitorEl.textContent = `[ VISITS: ACTIVE ]`; });
             });
     }
     

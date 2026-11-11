@@ -39,6 +39,16 @@ except Exception as e:
 STRAVA_CLIENT_ID = os.getenv("STRAVA_CLIENT_ID")
 STRAVA_CLIENT_SECRET = os.getenv("STRAVA_CLIENT_SECRET")
 
+
+@app.get("/api/visit/count")
+async def get_visit_count():
+    try:
+        count = r.get("visitor_count") or 0
+        return {"count": int(count)}
+    except Exception as e:
+        print(f"Redis error: {e}")
+        return {"count": "ERR", "detail": str(e)}
+
 @app.get("/api/visit")
 async def register_visit():
     try:

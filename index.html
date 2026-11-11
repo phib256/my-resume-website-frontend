@@ -279,12 +279,15 @@
                 <p class="section-tagline">Moving your business from fragile legacy systems to immutable, highly-available cloud infrastructure.</p>
             </div>
             
-                        <div class="projects-grid">
+                                    <div class="projects-grid">
                 <!-- Card 1: Bare-Metal Kubernetes Platform -->
                 <div class="project-card glass-card glow-green">
-                    <div class="card-image-wrapper">
-                        <img src="./assets/project-4.jpg" alt="Bare-Metal Kubernetes Platform" class="card-img">
-                        <div class="card-overlay"></div>
+                    <div class="card-topo-header">
+                        <div class="topo-badge" style="color: var(--neon-green);"><i class="fa-solid fa-server"></i> sys://k8s-baremetal-bgp</div>
+                        <div class="topo-snippet">
+                            <code><span class="hl-green">node1 [10.10.10.100]</span> &lt;---BGP MESH---&gt; <span class="hl-cyan">node2 &amp; node3</span></code>
+                            <code>CNI: Calico BGP (bird) | HostPort Ingress: 0.42ms RTT</code>
+                        </div>
                     </div>
                     <div class="card-body">
                         <span class="folder-tag">sys://k8s-platform</span>
@@ -307,9 +310,12 @@
 
                 <!-- Card 2: Autonomous Dual-WAN Watchdog -->
                 <div class="project-card glass-card glow-cyan">
-                    <div class="card-image-wrapper">
-                        <img src="./assets/project-5.jpg" alt="Autonomous SD-WAN" class="card-img">
-                        <div class="card-overlay"></div>
+                    <div class="card-topo-header">
+                        <div class="topo-badge" style="color: var(--neon-cyan);"><i class="fa-solid fa-network-wired"></i> net://dualwan-policy-routing</div>
+                        <div class="topo-snippet">
+                            <code>WAN-1: <span class="hl-cyan">Fiber (metric 50)</span> | WAN-2: <span class="hl-orange">Backup (metric 200)</span></code>
+                            <code>Watchdog: 15s ICMP probe · Auto-failover table 100/200</code>
+                        </div>
                     </div>
                     <div class="card-body">
                         <span class="folder-tag">net://sdwan-watchdog</span>
@@ -332,9 +338,12 @@
 
                 <!-- Card 3: Kernel-Level Observability (eBPF) -->
                 <div class="project-card glass-card glow-orange">
-                    <div class="card-image-wrapper">
-                        <img src="./assets/project-4.jpg" alt="eBPF Observability" class="card-img" style="filter: hue-rotate(270deg);">
-                        <div class="card-overlay"></div>
+                    <div class="card-topo-header">
+                        <div class="topo-badge" style="color: var(--neon-orange);"><i class="fa-solid fa-microchip"></i> sre://ebpf-kernel-telemetry</div>
+                        <div class="topo-snippet">
+                            <code>Hooks: <span class="hl-orange">kprobe:tcp_v4_connect</span> / <span class="hl-green">sock:inet_sock_set_state</span></code>
+                            <code>Overhead: &lt;0.8% CPU (replaces 18% user-space daemon)</code>
+                        </div>
                     </div>
                     <div class="card-body">
                         <span class="folder-tag">sre://ebpf-telemetry</span>
@@ -357,9 +366,12 @@
 
                 <!-- Card 4: Managed ERPNext & SaaS Gateway -->
                 <div class="project-card glass-card glow-green">
-                    <div class="card-image-wrapper">
-                        <img src="./assets/project-1.png" alt="Enterprise ERPNext" class="card-img">
-                        <div class="card-overlay"></div>
+                    <div class="card-topo-header">
+                        <div class="topo-badge" style="color: var(--neon-green);"><i class="fa-solid fa-cubes"></i> saas://multi-tenant-gateway</div>
+                        <div class="topo-snippet">
+                            <code>Ingress: <span class="hl-cyan">*.phib.net</span> -&gt; Cloudflare Zero-Trust (0 Open Ports)</code>
+                            <code>Tenants: Isolated DB Schemas · Dynamic PyProvisioner</code>
+                        </div>
                     </div>
                     <div class="card-body">
                         <span class="folder-tag">saas://erpnext-orchestration</span>
